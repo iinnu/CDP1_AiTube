@@ -10,6 +10,8 @@ class SignUpPage extends StatefulWidget {
 }
 
 class SignUpPageState extends State<SignUpPage> {
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
   String _email = "";
   String _id = "";
   String _pw = "";
@@ -18,6 +20,7 @@ class SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
           title: Text('회원가입'),
           leading: IconButton(
@@ -36,8 +39,8 @@ class SignUpPageState extends State<SignUpPage> {
         child: Column(
             children: <Widget>[
               Container(// Our logo
-                margin: EdgeInsets.only(top: 80, bottom: 50),
-                alignment: Alignment.center,
+                margin: EdgeInsets.symmetric(vertical: 50),
+                //alignment: Alignment.center,
                 child: Image.asset(
                   'assets/images/logo.png',
                   width: 150,
@@ -87,11 +90,36 @@ class SignUpPageState extends State<SignUpPage> {
                 child: TextField(
                   onChanged: (text) => _pw_check = text,
                   maxLength: 20,
+                  obscureText: true,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: '비밀번호 확인'
                   ),
                 ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                //alignment: Alignment.center,
+                child:
+                RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    side: BorderSide(color: Colors.lightBlue[900]),
+                  ),
+                  onPressed: () {
+                    if(_pw != _pw_check) {
+                      scaffoldKey.currentState
+                        .showSnackBar(SnackBar(content: Text("비밀번호가 일치하지 않습니다.")));
+                    }
+                    if(_id == "" || _email == "" || _pw == "" || _pw_check == "") {
+                      scaffoldKey.currentState
+                          .showSnackBar(SnackBar(content: Text("모든 칸을 채워주세요.")));
+                    }
+                  },
+                  color: Colors.lightBlue[900],
+                  textColor: Colors.white,
+                  child: Text('회원가입', style: TextStyle(fontSize:20)),
+                )
               ),
             ]
         ),

@@ -107,13 +107,13 @@ class SignUpPageState extends State<SignUpPage> {
                     side: BorderSide(color: Colors.lightBlue[900]),
                   ),
                   onPressed: () {
-                    if(_pw != _pw_check) {
-                      scaffoldKey.currentState
-                        .showSnackBar(SnackBar(content: Text("비밀번호가 일치하지 않습니다.")));
-                    }
                     if(_id == "" || _email == "" || _pw == "" || _pw_check == "") {
                       scaffoldKey.currentState
                           .showSnackBar(SnackBar(content: Text("모든 칸을 채워주세요.")));
+                    }
+                    if(_pw != _pw_check) {
+                      scaffoldKey.currentState
+                        .showSnackBar(SnackBar(content: Text("비밀번호가 일치하지 않습니다.")));
                     }
                   },
                   color: Colors.lightBlue[900],

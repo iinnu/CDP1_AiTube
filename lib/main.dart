@@ -3,6 +3,8 @@ import 'package:cdp1_aitube/pages/login_page.dart';
 import 'package:cdp1_aitube/pages/setting_page.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/signup_page.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -32,6 +34,7 @@ class MyApp extends StatelessWidget {
       initialRoute: LoginPage.routeName,
       routes: {
         LoginPage.routeName: (ctx) => DummyPage(),  // here you simply change DummyPage() for any page you want, for example LoginPage();
+        SignUpPage.routeName: (ctx) => SignUpPage(),
         SettingPage.routeName: (ctx) => SettingPage(),  // this convention of 'routes' is pretty useful and very easy to use
       },
       onUnknownRoute: (settings) {

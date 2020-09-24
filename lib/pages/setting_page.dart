@@ -1,4 +1,3 @@
-import 'package:cdp1_aitube/widgets/setting_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,7 +10,6 @@ class SettingPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Settings', style: Theme.of(context).textTheme.headline6.copyWith(color: Colors.white)),
       ),
-      endDrawer: SettingDrawer(),
       body: Column(
         children: [
           Container(

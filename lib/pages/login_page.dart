@@ -28,17 +28,17 @@ class LoginPage extends StatelessWidget {
                   title: TextField(
                     style: TextStyle(color: Colors.black38),
                     decoration: InputDecoration(
-                    hintText: "ID",
-                    hintStyle: TextStyle(
-                      color: Colors.black38,
-                      fontSize: 17.0,
-                    ),
-                    border: InputBorder.none,
-                    icon: Icon(
-                      Icons.email,
-                      color: Colors.black38,
-                    )),
-              )),
+                        hintText: "ID",
+                        hintStyle: TextStyle(
+                          color: Colors.black38,
+                          fontSize: 17.0,
+                        ),
+                        border: InputBorder.none,
+                        icon: Icon(
+                          Icons.email,
+                          color: Colors.black38,
+                        )),
+                  )),
               Divider(
                 color: Colors.grey.shade600,
               ),
@@ -46,17 +46,17 @@ class LoginPage extends StatelessWidget {
                   title: TextField(
                     style: TextStyle(color: Colors.black38),
                     decoration: InputDecoration(
-                    hintText: "Password",
-                    hintStyle: TextStyle(
-                      color: Colors.black38,
-                      fontSize: 17.0,
-                    ),
-                    border: InputBorder.none,
-                    icon: Icon(
-                      Icons.lock,
-                      color: Colors.black38,
-                    )),
-              )),
+                        hintText: "Password",
+                        hintStyle: TextStyle(
+                          color: Colors.black38,
+                          fontSize: 17.0,
+                        ),
+                        border: InputBorder.none,
+                        icon: Icon(
+                          Icons.lock,
+                          color: Colors.black38,
+                        )),
+                  )),
               Divider(
                 color: Colors.grey.shade600,
               ),
@@ -64,30 +64,30 @@ class LoginPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   InkWell(
-                    onTap: (){print('pressed!');},
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          child: Text(
-                            'Login',
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
+                      onTap: (){print('pressed!');},
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                color: Colors.black54,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(3, 3, 0, 0),
-                          child: Icon(
-                            Icons.arrow_forward,
-                            color:Colors.black54,
-                            size: 22,
-                          ),
-                        )
-                      ],
-                    )
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(3, 3, 0, 0),
+                            child: Icon(
+                              Icons.arrow_forward,
+                              color:Colors.black54,
+                              size: 22,
+                            ),
+                          )
+                        ],
+                      )
                   )
                 ],
               ),

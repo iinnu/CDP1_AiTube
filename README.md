@@ -1,4 +1,5 @@
-# cdp1_aitube
+# cdp1_Aitube
+Text-based image editing program
 
 A new Flutter application.
 

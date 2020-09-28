@@ -53,7 +53,7 @@ class SettingPage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Contact us',
+                  'Contact us ',
                   style: GoogleFonts.nanumGothic(fontSize: 40, fontWeight: FontWeight.w100),
                 ),
               ),

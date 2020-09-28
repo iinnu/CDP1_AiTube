@@ -1,7 +1,9 @@
+
 import 'package:cdp1_aitube/pages/find_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:cdp1_aitube/pages/select_page.dart';
 
 class LoginPage extends StatelessWidget {
   static const String routeName = '/login';
@@ -64,7 +66,7 @@ class LoginPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   InkWell(
-                    onTap: (){print('pressed!');},
+                    onTap: () => _openSelect(context),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
@@ -107,6 +109,10 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _openSelect(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed(SelectPage.routeName);
   }
 }
 
@@ -154,8 +160,7 @@ class _findButton extends StatelessWidget {
     return InkWell(
         onTap: () {
           Navigator.push(context, MaterialPageRoute(
-              builder: (context)=>FindPage()
-          ),
+              builder: (context)=>FindPage()),
           );
         },
         child: Container(

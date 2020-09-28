@@ -55,7 +55,7 @@ class SignUpPageState extends State<SignUpPage> {
                       maxLength: 30,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: '이메일'
+                          labelText: 'Email'
                       ),
                   ),
               ),
@@ -67,7 +67,7 @@ class SignUpPageState extends State<SignUpPage> {
                       maxLength: 20,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: '아이디'
+                          labelText: 'ID'
                       ),
                   ),
               ),
@@ -80,7 +80,7 @@ class SignUpPageState extends State<SignUpPage> {
                   obscureText: true,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: '비밀번호'
+                      labelText: 'Password'
                   ),
                 ),
               ),
@@ -93,7 +93,7 @@ class SignUpPageState extends State<SignUpPage> {
                   obscureText: true,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: '비밀번호 확인'
+                      labelText: 'Check Password'
                   ),
                 ),
               ),

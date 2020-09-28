@@ -1,7 +1,8 @@
 import 'package:cdp1_aitube/pages/dummy_page.dart';
+import 'package:cdp1_aitube/pages/setting_page.dart';
 import 'package:cdp1_aitube/pages/signup_page.dart';
 import 'package:flutter/material.dart';
-import 'setting_page.dart';
+
 
 class SelectPage extends StatelessWidget {
   static const routeName = "/select";
@@ -47,8 +48,13 @@ class SelectPage extends StatelessWidget {
                     style: TextStyle(
                         fontSize:24)
                 ),
-                onPressed: () => SignUpPage(),
-              ),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => DummyPage()
+                  ),
+                  );
+                },
+            )
             ),
             Container(
               width : 200,
@@ -71,7 +77,10 @@ class SelectPage extends StatelessWidget {
                   ),
                   onPressed: () {
                     scaffoldKey.currentState
-                        .showSnackBar(SnackBar(content : Text("준비중")));
+                        .showSnackBar(SnackBar(
+                        content : Text("준비중"),
+                        backgroundColor: Colors.deepOrange,
+                    ));
                   }
               ),
             ),
@@ -88,7 +97,12 @@ class SelectPage extends StatelessWidget {
                           decoration : TextDecoration.underline
                       )
                   ),
-                  onTap : () {},
+                  onTap : () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context)=>DummyPage()
+                    ),
+                    );
+                  },
                 )
             ),
           ]

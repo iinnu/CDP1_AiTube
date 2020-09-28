@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
 
-      initialRoute: LoginPage.routeName,
+      initialRoute: SelectPage.routeName,
       routes: {
         FindPage.routeName: (ctx) => FindPage(),
         LoginPage.routeName: (ctx) => LoginPage(),  // here you simply change DummyPage() for any page you want, for example LoginPage();

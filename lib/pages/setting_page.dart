@@ -35,7 +35,7 @@ class SettingPage extends StatelessWidget {
                 Expanded(
                   child: Text(
                     'username',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.headline1,
                   ),
                 ),
               ],

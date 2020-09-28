@@ -32,19 +32,19 @@ class SelectPage extends StatelessWidget {
             Container(
               width : 200,
               height : 120,
-              margin : EdgeInsets.only(
-                  left : 100,
-                  top : 110
-              ),
+                margin : EdgeInsets.only(
+                    left : 100,
+                    top : 110
+                ),
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                     side: BorderSide(color: Colors.black38)
                 ),
-                color: Colors.blue,
+                color: Colors.lightGreen,
                 textColor: Colors.white,
                 child: Text(
-                    '영상편집',
+                    'VEDIO EDIT',
                     style: TextStyle(
                         fontSize:24)
                 ),
@@ -71,14 +71,14 @@ class SelectPage extends StatelessWidget {
                   color: Colors.redAccent,
                   textColor: Colors.white,
                   child: Text(
-                      '상점',
+                      'STORE',
                       style: TextStyle(
                           fontSize:24)
                   ),
                   onPressed: () {
                     scaffoldKey.currentState
                         .showSnackBar(SnackBar(
-                        content : Text("준비중"),
+                        content : Text("Preparing"),
                         backgroundColor: Colors.deepOrange,
                     ));
                   }

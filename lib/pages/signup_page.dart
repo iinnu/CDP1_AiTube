@@ -22,7 +22,7 @@ class SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-          title: Text('회원가입'),
+          title: Text('Sign up'),
           leading: IconButton(
               icon: Icon(Icons.arrow_back),
               onPressed: () {
@@ -55,7 +55,7 @@ class SignUpPageState extends State<SignUpPage> {
                       maxLength: 30,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: 'Email'
+                          labelText: 'E-mail'
                       ),
                   ),
               ),
@@ -109,16 +109,16 @@ class SignUpPageState extends State<SignUpPage> {
                   onPressed: () {
                     if(_id == "" || _email == "" || _pw == "" || _pw_check == "") {
                       scaffoldKey.currentState
-                          .showSnackBar(SnackBar(content: Text("모든 칸을 채워주세요.")));
+                          .showSnackBar(SnackBar(content: Text("Please fill in all blanks")));
                     }
                     if(_pw != _pw_check) {
                       scaffoldKey.currentState
-                        .showSnackBar(SnackBar(content: Text("비밀번호가 일치하지 않습니다.")));
+                        .showSnackBar(SnackBar(content: Text("Passwords do not match")));
                     }
                   },
                   color: Colors.lightBlue[900],
                   textColor: Colors.white,
-                  child: Text('회원가입', style: TextStyle(fontSize:20)),
+                  child: Text('Sign up', style: TextStyle(fontSize:20)),
                 )
               ),
             ]

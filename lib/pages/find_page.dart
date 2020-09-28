@@ -39,7 +39,7 @@ class FindPage extends StatelessWidget {
                         //1_child
                         Container(
                           child: Text(
-                            "ID 찾기",
+                            "Find ID",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 25.0,
@@ -47,20 +47,13 @@ class FindPage extends StatelessWidget {
                           ),
                         ),
                         //2_child
-                        SizedBox(height: 10, width: 200),
+                        SizedBox(height: 20, width: 200),
                         //3_child
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          child: Text(
-                            "이메일",
-                            style: TextStyle(fontSize: 15.0),
-                          ),
-                        ),
                         //4_child
                         TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'e-mail',
+                            labelText: 'E-mail',
                           ),
                         ),
                         //5_child
@@ -70,7 +63,7 @@ class FindPage extends StatelessWidget {
                           alignment: Alignment.center,
                           child: RaisedButton(
                             child: Text(
-                              "찾기",
+                              "Find",
                               style: TextStyle(fontSize: 15.0),
                             ),
                             onPressed: () {
@@ -79,15 +72,17 @@ class FindPage extends StatelessWidget {
                             color: Colors.lightBlueAccent,
                           ),
                         ),
+                        SizedBox(height: 20, width: 100),
                         //7_child
                         Divider(
                           height: 35,
                           color: Colors.blue,
                         ),
+                        SizedBox(height: 20, width: 100),
                         //8_child
                         Container(
                           child: Text(
-                            "PW 찾기",
+                            "Find Password",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 25.0,
@@ -95,30 +90,17 @@ class FindPage extends StatelessWidget {
                           ),
                         ),
                         //9_child
-                        SizedBox(height: 10, width: 200),
+                        SizedBox(height: 20, width: 200),
                         //10_child
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          child: Text(
-                            "이메일",
-                            style: TextStyle(fontSize: 15.0),
-                          ),
-                        ),
                         //11_child
                         TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'e-mail',
+                            labelText: 'E-mail',
                           ),
                         ),
                         //12_child
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          child: Text(
-                            "아이디",
-                            style: TextStyle(fontSize: 15.0),
-                          ),
-                        ),
+                        SizedBox(height: 10, width: 200),
                         //13_child
                         TextField(
                           decoration: InputDecoration(
@@ -133,7 +115,7 @@ class FindPage extends StatelessWidget {
                           alignment: Alignment.center,
                           child: RaisedButton(
                             child: Text(
-                              "찾기",
+                              "Find",
                               style: TextStyle(fontSize: 15.0),
                             ),
                             onPressed: () {

@@ -1,4 +1,5 @@
 import 'package:cdp1_aitube/pages/find_page.dart';
+import 'package:cdp1_aitube/pages/signup_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -131,7 +132,12 @@ class _signupButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(
+              builder: (context) => SignUpPage()
+          ),
+          );
+        },
         child: Container(
           alignment: Alignment(0.0, 0.0),
           width: 70.0,

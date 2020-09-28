@@ -1,8 +1,13 @@
+import 'package:cdp1_aitube/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SettingPage extends StatelessWidget {
   static const routeName = "/settings";
+
+  void openLogin(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed(LoginPage.routeName);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +53,7 @@ class SettingPage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '문의하기',
+                  'Contact us',
                   style: GoogleFonts.nanumGothic(fontSize: 40, fontWeight: FontWeight.w100),
                 ),
               ),
@@ -66,7 +71,7 @@ class SettingPage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '공유',
+                  'Share',
                   style: GoogleFonts.nanumGothic(fontSize: 40),
                 ),
               ),
@@ -79,12 +84,12 @@ class SettingPage extends StatelessWidget {
           Container(
             width: double.infinity,
             child: InkWell(
-              onTap: () {},
+              onTap: () => openLogin(context),
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '로그아웃',
+                  'Log out',
                   style: GoogleFonts.nanumGothic(fontSize: 40),
                 ),
               ),

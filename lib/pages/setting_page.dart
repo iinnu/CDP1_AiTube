@@ -92,7 +92,8 @@ class SettingPage extends StatelessWidget {
             child: InkWell(
               onTap: () {
                 currentUser.handleLogOut();
-                Navigator.of(context).popUntil((route) => route.isFirst);
+                Navigator.of(context)
+                    .pushNamedAndRemoveUntil(LoginPage.routeName, (Route<dynamic> route) => false);
               },
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 15),

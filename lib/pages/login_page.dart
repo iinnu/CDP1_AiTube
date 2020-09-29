@@ -184,12 +184,12 @@ class GoogleLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
+      onTap: () async {
         currentUser.changeLoginMethod(LoginMethod.GOOGLE);
-        currentUser.handleSignIn();
-        if (currentUser.isSignedIn() != null) {
+        await currentUser.handleSignIn();
+        if (await currentUser.isSignedIn()) {
           Navigator.of(context)
-              .pushNamed(SelectPage.routeName, arguments: currentUser);
+              .pushReplacementNamed(SelectPage.routeName, arguments: currentUser);
         }
       },
       child: Container(

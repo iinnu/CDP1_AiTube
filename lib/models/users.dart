@@ -60,7 +60,7 @@ class Users {
 
   Future<bool> isSignedIn() async {
     try {
-      return await _googleSignIn.isSignedIn();
+      return _googleSignIn.isSignedIn();
     } catch (error) {
       print(error);
     }

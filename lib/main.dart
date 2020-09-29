@@ -1,4 +1,3 @@
-import 'package:cdp1_aitube/pages/dummy_page.dart';
 import 'package:cdp1_aitube/pages/login_page.dart';
 import 'package:cdp1_aitube/pages/select_page.dart';
 import 'package:cdp1_aitube/pages/setting_page.dart';
@@ -6,7 +5,6 @@ import 'package:cdp1_aitube/pages/find_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'pages/login_page.dart';
-import 'pages/signup_page.dart';
 import 'pages/signup_page.dart';
 
 void main() {

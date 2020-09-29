@@ -98,24 +98,27 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      SizedBox(
-                        height: 60,
-                      ),
-                      KakaoButton(currentUser),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      SignUpButton(),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      FindButton(),
-                      GoogleLogin(currentUser),
-                    ],
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  SizedBox(
+                    height: 60,
                   ),
+                  KakaoButton(currentUser),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  GoogleLogin(currentUser),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  SignUpButton(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  FindButton(),
                 ],
               ),
             ]),
@@ -188,13 +191,13 @@ class GoogleLogin extends StatelessWidget {
         currentUser.changeLoginMethod(LoginMethod.GOOGLE);
         await currentUser.handleSignIn();
         if (await currentUser.isSignedIn()) {
-          Navigator.of(context)
-              .pushReplacementNamed(SelectPage.routeName, arguments: currentUser);
+          Navigator.of(context).pushReplacementNamed(SelectPage.routeName,
+              arguments: currentUser);
         }
       },
       child: Container(
-        width: 200.0,
-        height: 50.0,
+        width: 208.0,
+        height: 57.0,
         child: Image.asset(
           'assets/images/google_logo.png',
 //fit: BoxFit.cover,

@@ -50,8 +50,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
-          headline1: GoogleFonts
-              .sacramento(), // added those fonts just as a help to adding others
+          headline1: GoogleFonts.fahkwang().copyWith(fontSize: 40),
+          // added those fonts just as a help to adding others
+          subtitle1: GoogleFonts.abel().copyWith(fontSize: 15),
         ),
         primaryTextTheme:
             GoogleFonts.sacramentoTextTheme(Theme.of(context).textTheme),

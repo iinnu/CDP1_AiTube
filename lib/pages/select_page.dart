@@ -1,7 +1,5 @@
-import 'package:cdp1_aitube/models/users.dart';
 import 'package:cdp1_aitube/pages/dummy_page.dart';
 import 'package:cdp1_aitube/pages/setting_page.dart';
-import 'package:cdp1_aitube/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 
 class SelectPage extends StatelessWidget {
@@ -10,7 +8,6 @@ class SelectPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Users currentUser = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
       key: scaffoldKey,
@@ -21,7 +18,7 @@ class SelectPage extends StatelessWidget {
             icon: Icon(Icons.menu),
             onPressed: () => //누르면 SettingPage로 넘어가고 뒤로가기 버튼을 누르면 다시 돌아옴.
                 Navigator.of(context)
-                    .pushNamed(SettingPage.routeName, arguments: currentUser),
+                    .pushNamed(SettingPage.routeName, arguments: null),
           )
         ],
       ),

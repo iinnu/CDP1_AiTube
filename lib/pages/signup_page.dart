@@ -108,20 +108,22 @@ class SignUpPageState extends State<SignUpPage> {
                       _pw_check == "") {
                     scaffoldKey.currentState.showSnackBar(
                         SnackBar(content: Text("Please fill in all blanks")));
+                    return;
                   }
                   if (_pw != _pw_check) {
                     scaffoldKey.currentState.showSnackBar(
                         SnackBar(content: Text("Passwords do not match")));
+                    return;
                   }
                 }
                 try {
-                  showDialog(
-                    context: context,
-                    builder: (_) => MyAlert("Your account has been created!"),
-                  );
                    UserCredential userCredential = await FirebaseAuth.instance
                        .createUserWithEmailAndPassword(
                            email: _email, password: _pw);
+                   showDialog(
+                     context: context,
+                     builder: (_) => MyAlert("Your account has been created!"),
+                   );
                   Future.delayed(const Duration(milliseconds: 2000), () {
                     Navigator.of(context)
                         .pushNamedAndRemoveUntil(SelectPage.routeName, (Route<dynamic> route) => false);

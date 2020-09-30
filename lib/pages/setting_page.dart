@@ -1,5 +1,5 @@
-import 'package:cdp1_aitube/models/users.dart';
 import 'package:cdp1_aitube/pages/login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,7 +12,6 @@ class SettingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Users currentUser = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('Settings',
@@ -33,14 +32,23 @@ class SettingPage extends StatelessWidget {
                     backgroundColor: Theme.of(context).primaryColor,
                     child: CircleAvatar(
                       radius: 48,
-                      backgroundImage: NetworkImage(currentUser.getPhoto()),
+                      backgroundImage: NetworkImage(
+                          FirebaseAuth.instance.currentUser.photoURL),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: Text(
-                    currentUser.getName(),
-                    style: Theme.of(context).textTheme.headline1,
+                  child: Column(
+                    children: [
+                      Text(
+                        FirebaseAuth.instance.currentUser.displayName,
+                        style: Theme.of(context).textTheme.headline1,
+                      ),
+                      Text(
+                        FirebaseAuth.instance.currentUser.email,
+                        style: Theme.of(context).textTheme.subtitle1,
+                      )
+                    ],
                   ),
                 ),
               ],
@@ -90,10 +98,11 @@ class SettingPage extends StatelessWidget {
           Container(
             width: double.infinity,
             child: InkWell(
-              onTap: () {
-                currentUser.handleLogOut();
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil(LoginPage.routeName, (Route<dynamic> route) => false);
+              onTap: () async {
+                await FirebaseAuth.instance.signOut();
+                // currentUser.handleLogOut();
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    LoginPage.routeName, (Route<dynamic> route) => false);
               },
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 15),

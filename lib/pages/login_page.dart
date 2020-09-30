@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:cdp1_aitube/pages/select_page.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class LoginPage extends StatelessWidget {
   static const String routeName = '/login';
@@ -12,183 +14,130 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-      child: Container(
-        padding: EdgeInsets.all(20.0),
-        height: double.infinity,
-        width: double.infinity,
-        child: Column(children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(
-              top: 30.0,
-              bottom: 60.0,
-            ),
-            height: 120.0,
-            width: 120.0,
-            child: Image.asset(
-              'assets/images/logo.png',
-            ),
-          ),
-          ListTile(
-              title: TextField(
-            style: TextStyle(color: Colors.black38),
-            decoration: InputDecoration(
-                hintText: "ID",
-                hintStyle: TextStyle(
-                  color: Colors.black38,
-                  fontSize: 17.0,
-                ),
-                border: InputBorder.none,
-                icon: Icon(
-                  Icons.email,
-                  color: Colors.black38,
-                )),
-          )),
-          Divider(
-            color: Colors.grey.shade600,
-          ),
-          ListTile(
-              title: TextField(
-            style: TextStyle(color: Colors.black38),
-            decoration: InputDecoration(
-                hintText: "Password",
-                hintStyle: TextStyle(
-                  color: Colors.black38,
-                  fontSize: 17.0,
-                ),
-                border: InputBorder.none,
-                icon: Icon(
-                  Icons.lock,
-                  color: Colors.black38,
-                )),
-          )),
-          Divider(
-            color: Colors.grey.shade600,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              InkWell(
-                onTap: () => _openSelect(context),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        'Login',
-                        style: TextStyle(
-                          color: Colors.black54,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(3, 3, 0, 0),
-                      child: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.black54,
-                        size: 22,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  SizedBox(
-                    height: 60,
-                  ),
-                  _kakaoButton(),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  _signupButton(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  _findButton(),
-                ],
-              ),
+          child: Container(
+            padding: EdgeInsets.all(20.0),
+            height: double.infinity,
+            width: double.infinity,
+            child: Column(children: <Widget>[
+              _buildTextContainer1(),
+              _buildLogoImage(),
+              _buildTextContainer2(),
+              //_facebookButton(),
+              //_googleButton(),
+              _kakaoButton(),
+              _buildTextContainer3(),
             ],
+            ),
           ),
-        ]),
+        )
+    );
+  }
+
+  Widget _buildTextContainer1() {
+    return Container(
+      margin: EdgeInsets.only(
+        top: 97.0,
+        bottom: 11.0,
       ),
-    ));
-  }
-
-  void _openSelect(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(SelectPage.routeName);
-  }
-}
-
-class _kakaoButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        print('press');
-      },
-      child: Container(
-        width: 200.0,
-        height: 50.0,
-        child: Image.asset(
-          'assets/images/kakao.png',
-          //fit: BoxFit.cover,
+      child: Text(
+        '텍스트 편집의 시작',
+        style: TextStyle(
+          fontSize: 15.5,
+          color: Hexcolor('#474747'),
         ),
       ),
     );
   }
-}
 
-class _signupButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => SignUpPage()),
-          );
-        },
-        child: Container(
-          alignment: Alignment(0.0, 0.0),
-          width: 70.0,
-          height: 22.0,
-          child: Text(
-            'Sign up',
-            style: TextStyle(
-                color: Colors.black54,
-                fontSize: 17.0,
-                decoration: TextDecoration.underline,
-                decorationColor: Colors.black54),
-          ),
-        ));
+  Widget _buildLogoImage() {
+    return SvgPicture.asset(
+        'assets/images/logo.svg',
+        //width: 160,
+        //height: 44,
+      );
   }
-}
 
-class _findButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildTextContainer2() {
+    return Container(
+      margin: EdgeInsets.only(
+        top: 180.0,
+        bottom: 20.0,
+      ),
+      child: Text(
+        'AiTube의 서비스를 이용하시려면 로그인 해주세요.',
+        style: TextStyle(
+          fontSize: 14,
+          color: Hexcolor('#333333'),
+        ),
+      ),
+    );
+  }
+
+  //Widget _facebookButton() {}
+  //Widget _googleButton() {}
+
+  Widget _kakaoButton() {
     return InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => FindPage()),
-          );
-        },
-        child: Container(
-          alignment: Alignment(0.0, 0.0),
-          width: 230.0,
-          height: 22.0,
-          child: Text(
-            'Forgot your ID or Password?',
-            style: TextStyle(
-                color: Colors.black54,
-                fontSize: 17.0,
-                decoration: TextDecoration.underline,
-                decorationColor: Colors.black54),
-          ),
-        ));
+        onTap: () => print("pressed"),
+        child: Image.asset(
+          'assets/images/kakao_login.png',
+          //fit: BoxFit.cover,
+        )
+    );
+  }
+
+  Widget _buildTextContainer3() {
+    return Container(
+      alignment: Alignment.center,
+      width: double.infinity,
+      margin: EdgeInsets.only(
+        top: 10.0,
+      ),
+        child: RichText(
+            text: TextSpan(
+                text: '회원가입 없이 이용 가능하며 로그인시 ',
+                style: TextStyle(
+                  fontSize: 8,
+                  color: Hexcolor('#969696'),
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: '이용약관 ',
+                    style: TextStyle(
+                      fontSize: 8,
+                      fontWeight: FontWeight.bold,
+                      color: Hexcolor('#969696'),
+                    ),
+                  ),
+                  TextSpan(
+                    text: '및',
+                    style: TextStyle(
+                      fontSize:8,
+                      color: Hexcolor('#969696'),
+                    ),
+                  ),
+                  TextSpan(
+                    text: '개인정보처리방침',
+                    style: TextStyle(
+                      fontSize: 8,
+                      fontWeight: FontWeight.bold,
+                      color: Hexcolor('#969696'),
+                    ),
+                  ),
+                  TextSpan(
+                    text: '에 동의한 것으로 간주합니다.',
+                    style: TextStyle(
+                      fontSize: 8,
+                      color: Hexcolor('#969696'),
+                    ),
+                  )
+                ]
+            )
+        )
+    );
+  }
+
+  void _openSelect(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed(SelectPage.routeName);
   }
 }

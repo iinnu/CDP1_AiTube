@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:cdp1_aitube/pages/select_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-//import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -161,7 +161,7 @@ class LoginPage extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    //FacebookLogin(),
+                    FacebookLogin(),
                     SizedBox(
                       height: 30,
                     ),
@@ -273,44 +273,44 @@ class GoogleLogin extends StatelessWidget {
   }
 }
 
-// class FacebookLogin extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return InkWell(
-//       onTap: () async {
-//         Future<UserCredential> signInWithFacebook() async {
-//           // Trigger the sign-in flow
-//           final LoginResult result = await FacebookAuth.instance.login();
-//
-//           // Create a credential from the access token
-//           final FacebookAuthCredential facebookAuthCredential =
-//               FacebookAuthProvider.credential(result.accessToken.token);
-//
-//           // Once signed in, return the UserCredential
-//           return await FirebaseAuth.instance
-//               .signInWithCredential(facebookAuthCredential);
-//         }
-//
-//         FirebaseAuth.instance.authStateChanges().listen((User user) {
-//           if (user == null) {
-//             return;
-//           } else {
-//             Navigator.of(context)
-//                 .pushReplacementNamed(SelectPage.routeName, arguments: null);
-//           }
-//         });
-//       },
-//       child: Container(
-//         width: 208.0,
-//         height: 57.0,
-//         child: Image.asset(
-//           'assets/images/facebook_logo.png',
-// //fit: BoxFit.cover,
-//         ),
-//       ),
-//     );
-//   }
-// }
+class FacebookLogin extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () async {
+
+        print('here');
+        // Trigger the sign-in flow
+        final LoginResult result = await FacebookAuth.instance.login();
+
+        // Create a credential from the access token
+        final FacebookAuthCredential facebookAuthCredential =
+            FacebookAuthProvider.credential(result.accessToken.token);
+
+        await FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
+
+
+
+        FirebaseAuth.instance.authStateChanges().listen((User user) {
+          if (user == null) {
+            return;
+          } else {
+            Navigator.of(context)
+                .pushReplacementNamed(SelectPage.routeName, arguments: null);
+          }
+        });
+      },
+      child: Container(
+        width: 208.0,
+        height: 57.0,
+        child: Image.asset(
+          'assets/images/facebook_logo.png',
+//fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+}
 
 class FindButton extends StatelessWidget {
   @override
@@ -338,5 +338,3 @@ class FindButton extends StatelessWidget {
     );
   }
 }
-
-

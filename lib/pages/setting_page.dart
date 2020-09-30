@@ -10,6 +10,7 @@ class SettingPage extends StatelessWidget {
     Navigator.of(ctx).pushNamed(LoginPage.routeName);
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +81,9 @@ class SettingPage extends StatelessWidget {
           Container(
             width: double.infinity,
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                print(FirebaseAuth.instance.currentUser.toString());
+              },
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 alignment: Alignment.centerLeft,

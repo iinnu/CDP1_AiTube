@@ -1,9 +1,7 @@
-import 'package:cdp1_aitube/pages/find_page.dart';
-import 'package:cdp1_aitube/pages/signup_page.dart';
+import 'package:cdp1_aitube/pages/select_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:cdp1_aitube/pages/select_page.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -24,7 +22,7 @@ class LoginPage extends StatelessWidget {
               _buildTextContainer2(),
               //_facebookButton(),
               //_googleButton(),
-              _kakaoButton(),
+              _kakaoButton(context),
               _buildTextContainer3(),
             ],
             ),
@@ -51,10 +49,10 @@ class LoginPage extends StatelessWidget {
 
   Widget _buildLogoImage() {
     return SvgPicture.asset(
-        'assets/images/logo.svg',
-        //width: 160,
-        //height: 44,
-      );
+      'assets/images/logo.svg',
+      //width: 160,
+      //height: 44,
+    );
   }
 
   Widget _buildTextContainer2() {
@@ -76,9 +74,12 @@ class LoginPage extends StatelessWidget {
   //Widget _facebookButton() {}
   //Widget _googleButton() {}
 
-  Widget _kakaoButton() {
+  Widget _kakaoButton(BuildContext context) {
     return InkWell(
-        onTap: () => print("pressed"),
+        onTap: () => {
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (BuildContext context) => SelectPage())),
+        },
         child: Image.asset(
           'assets/images/kakao_login.png',
           //fit: BoxFit.cover,
@@ -88,11 +89,11 @@ class LoginPage extends StatelessWidget {
 
   Widget _buildTextContainer3() {
     return Container(
-      alignment: Alignment.center,
-      width: double.infinity,
-      margin: EdgeInsets.only(
-        top: 10.0,
-      ),
+        alignment: Alignment.center,
+        width: double.infinity,
+        margin: EdgeInsets.only(
+          top: 10.0,
+        ),
         child: RichText(
             text: TextSpan(
                 text: '회원가입 없이 이용 가능하며 로그인시 ',

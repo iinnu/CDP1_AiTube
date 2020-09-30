@@ -5,123 +5,160 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:cdp1_aitube/pages/select_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+FirebaseAuth auth = FirebaseAuth.instance;
 
 class LoginPage extends StatelessWidget {
   static const String routeName = '/login';
-  final Users currentUser = new Users();
+
+  final _userEmail = TextEditingController();
+  final _userPassword = TextEditingController();
+
+  void _submitData(BuildContext ctx) async {
+    final enteredEmail = _userEmail.text;
+    final enteredPassword = _userPassword.text;
+    if (enteredPassword.isEmpty || enteredEmail.isEmpty) {
+      Scaffold.of(ctx)
+          .showSnackBar(SnackBar(content: Text('Please fill in all blanks')));
+      return;
+    }
+
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: enteredEmail, password: enteredPassword);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print("tsda");
+        Scaffold.of(ctx).showSnackBar(
+            SnackBar(content: Text('No user found for that email.')));
+      } else if (e.code == 'wrong-password') {
+        Scaffold.of(ctx).showSnackBar(
+            SnackBar(content: Text('Wrong password provided for that user.')));
+      } else
+        Scaffold.of(ctx).showSnackBar(SnackBar(content: Text(e.toString())));
+    }
+  }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext ctx) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.all(20.0),
-            width: double.infinity,
-            child: Column(children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(
-                  top: 30.0,
-                  bottom: 60.0,
+      body: Builder(
+        builder: (context) => SafeArea(
+          child: SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.all(20.0),
+              width: double.infinity,
+              child: Column(children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(
+                    top: 30.0,
+                    bottom: 60.0,
+                  ),
+                  height: 120.0,
+                  width: 120.0,
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                  ),
                 ),
-                height: 120.0,
-                width: 120.0,
-                child: Image.asset(
-                  'assets/images/logo.png',
-                ),
-              ),
-              ListTile(
-                title: TextField(
-                  style: TextStyle(color: Colors.black38),
-                  decoration: InputDecoration(
-                    hintText: "ID",
-                    hintStyle: TextStyle(
-                      color: Colors.black38,
-                      fontSize: 17.0,
-                    ),
-                    border: InputBorder.none,
-                    icon: Icon(
-                      Icons.email,
-                      color: Colors.black38,
+                ListTile(
+                  title: TextField(
+                    style: TextStyle(color: Colors.black38),
+                    controller: _userEmail,
+                    onSubmitted: (_) => _submitData(context),
+                    decoration: InputDecoration(
+                      hintText: "ID",
+                      hintStyle: TextStyle(
+                        color: Colors.black38,
+                        fontSize: 17.0,
+                      ),
+                      border: InputBorder.none,
+                      icon: Icon(
+                        Icons.email,
+                        color: Colors.black38,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Divider(
-                color: Colors.grey.shade600,
-              ),
-              ListTile(
-                  title: TextField(
-                style: TextStyle(color: Colors.black38),
-                obscureText: true,
-                decoration: InputDecoration(
-                    hintText: "Password",
-                    hintStyle: TextStyle(
-                      color: Colors.black38,
-                      fontSize: 17.0,
-                    ),
-                    border: InputBorder.none,
-                    icon: Icon(
-                      Icons.lock,
-                      color: Colors.black38,
-                    )),
-              )),
-              Divider(
-                color: Colors.grey.shade600,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  InkWell(
-                    onTap: () => _openSelect(context),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          child: Text(
-                            'Login',
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
+                Divider(
+                  color: Colors.grey.shade600,
+                ),
+                ListTile(
+                    title: TextField(
+                  style: TextStyle(color: Colors.black38),
+                  obscureText: true,
+                  onSubmitted: (_) => _submitData(context),
+                  controller: _userPassword,
+                  decoration: InputDecoration(
+                      hintText: "Password",
+                      hintStyle: TextStyle(
+                        color: Colors.black38,
+                        fontSize: 17.0,
+                      ),
+                      border: InputBorder.none,
+                      icon: Icon(
+                        Icons.lock,
+                        color: Colors.black38,
+                      )),
+                )),
+                Divider(
+                  color: Colors.grey.shade600,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () => _submitData(context),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                color: Colors.black54,
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(3, 3, 0, 0),
-                          child: Icon(
-                            Icons.arrow_forward,
-                            color: Colors.black54,
-                            size: 22,
-                          ),
-                        )
-                      ],
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(3, 3, 0, 0),
+                            child: Icon(
+                              Icons.arrow_forward,
+                              color: Colors.black54,
+                              size: 22,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  SizedBox(
-                    height: 60,
-                  ),
-                  KakaoButton(currentUser),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  GoogleLogin(currentUser),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  SignUpButton(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  FindButton(),
-                ],
-              ),
-            ]),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 60,
+                    ),
+                    KakaoButton(),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    GoogleLogin(),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    SignUpButton(),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    FindButton(),
+                  ],
+                ),
+              ]),
+            ),
           ),
         ),
       ),
@@ -129,14 +166,12 @@ class LoginPage extends StatelessWidget {
   }
 
   void _openSelect(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(SelectPage.routeName);
+    Navigator.of(ctx).pushReplacementNamed(SelectPage.routeName);
   }
 }
 
 class KakaoButton extends StatelessWidget {
-  final Users currentUser;
-
-  KakaoButton(this.currentUser);
+  Users currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -180,9 +215,7 @@ class SignUpButton extends StatelessWidget {
 }
 
 class GoogleLogin extends StatelessWidget {
-  final Users currentUser;
-
-  GoogleLogin(this.currentUser);
+  Users currentUser;
 
   @override
   Widget build(BuildContext context) {

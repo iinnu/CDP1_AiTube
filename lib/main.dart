@@ -3,6 +3,7 @@ import 'package:cdp1_aitube/pages/login_page.dart';
 import 'package:cdp1_aitube/pages/select_page.dart';
 import 'package:cdp1_aitube/pages/setting_page.dart';
 import 'package:cdp1_aitube/pages/find_page.dart';
+import 'package:cdp1_aitube/pages/video_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'pages/login_page.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         SignUpPage.routeName: (ctx) => SignUpPage(),
         SettingPage.routeName: (ctx) => SettingPage(), // this convention of 'routes' is pretty useful and very easy to use
         SelectPage.routeName: (ctx) => SelectPage(),
+        VideoPage.routeName: (ctx) => VideoPage(),
       },
       onUnknownRoute: (settings) {
         return null; // potentially some kind of an error page

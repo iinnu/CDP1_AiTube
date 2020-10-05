@@ -3,4 +3,6 @@
     <string name="app_name">AiTube</string>
     <string name="facebook_app_id">687560018514861</string>
     <string name="fb_login_protocol_scheme">fb687560018514861</string>
+    <string name="kakao_app_key">f77129640e7f27ef67533bc01bbbb372</string>
+
 </resources>

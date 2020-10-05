@@ -1,3 +1,4 @@
+import 'package:cdp1_aitube/models/user.dart';
 import 'package:cdp1_aitube/pages/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,6 @@ class SettingPage extends StatelessWidget {
   void openLogin(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(LoginPage.routeName);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +33,8 @@ class SettingPage extends StatelessWidget {
                     backgroundColor: Theme.of(context).primaryColor,
                     child: CircleAvatar(
                       radius: 48,
-                      backgroundImage: NetworkImage(
-                          FirebaseAuth.instance.currentUser.photoURL),
+                      backgroundImage:
+                          NetworkImage(currentUser.getUserPhotoUrl()),
                     ),
                   ),
                 ),
@@ -42,11 +42,11 @@ class SettingPage extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        FirebaseAuth.instance.currentUser.displayName,
+                        currentUser.getUserName(),
                         style: Theme.of(context).textTheme.headline1,
                       ),
                       Text(
-                        FirebaseAuth.instance.currentUser.email,
+                        currentUser.getUserEmail(),
                         style: Theme.of(context).textTheme.subtitle1,
                       )
                     ],
@@ -81,9 +81,6 @@ class SettingPage extends StatelessWidget {
           Container(
             width: double.infinity,
             child: InkWell(
-              onTap: () {
-                print(FirebaseAuth.instance.currentUser.toString());
-              },
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 alignment: Alignment.centerLeft,
@@ -102,10 +99,9 @@ class SettingPage extends StatelessWidget {
             width: double.infinity,
             child: InkWell(
               onTap: () async {
-                await FirebaseAuth.instance.signOut();
-                // currentUser.handleLogOut();
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                    LoginPage.routeName, (Route<dynamic> route) => false);
+                if (!await currentUser.logout())
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      LoginPage.routeName, (Route<dynamic> route) => false);
               },
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 15),

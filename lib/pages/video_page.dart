@@ -11,7 +11,7 @@ class VideoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Vedio!',
+      title: 'Video!',
       home: MyHomePage(title: 'Video Picker'),
     );
   }

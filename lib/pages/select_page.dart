@@ -1,6 +1,7 @@
 import 'package:cdp1_aitube/pages/dummy_page.dart';
 import 'package:cdp1_aitube/pages/setting_page.dart';
 import 'package:cdp1_aitube/pages/signup_page.dart';
+import 'package:cdp1_aitube/pages/video_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -44,13 +45,13 @@ class SelectPage extends StatelessWidget {
                 color: Colors.lightGreen,
                 textColor: Colors.white,
                 child: Text(
-                    'VEDIO EDIT',
+                    'VIDEO EDIT',
                     style: TextStyle(
                         fontSize:24)
                 ),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(
-                      builder: (context) => DummyPage()
+                      builder: (context) => VideoPage()
                   ),
                   );
                 },

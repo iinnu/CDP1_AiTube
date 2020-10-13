@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "310142424127",
+    "firebase_url": "https://aitube-a38e9.firebaseio.com",
+    "project_id": "aitube-a38e9",
+    "storage_bucket": "aitube-a38e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310142424127:android:8dbcc74565abe48151d48a",
+        "android_client_info": {
+          "package_name": "com.example.cdp1_aitube"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "310142424127-rs6mov0qtsaeblba2kgmgccusrnr98t5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cdp1_aitube",
+            "certificate_hash": "dd9758f0c3896ab7aa4813492b17d708602f3c07"
+          }
+        },
+        {
+          "client_id": "310142424127-2atilbaq4l03kigk8fpntd3ee3fl3ip5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBizALflyQjiiWKbGDA6yiKryuBMT10tTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "310142424127-2atilbaq4l03kigk8fpntd3ee3fl3ip5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

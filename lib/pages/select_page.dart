@@ -4,28 +4,25 @@ import 'package:cdp1_aitube/pages/signup_page.dart';
 import 'package:cdp1_aitube/pages/video_page.dart';
 import 'package:flutter/material.dart';
 
-
 class SelectPage extends StatelessWidget {
   static const routeName = "/select";
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-          title: Text('Select'),
-          actions : <Widget>[
-            IconButton(
-              icon : Icon(Icons.menu),
-              onPressed : () { //누르면 SettingPage로 넘어가고 뒤로가기 버튼을 누르면 다시 돌아옴.
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context)=>SettingPage()
-                ),
-                );
-              },
-            )
-          ]
+        title: Text('Select'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () => //누르면 SettingPage로 넘어가고 뒤로가기 버튼을 누르면 다시 돌아옴.
+                Navigator.of(context)
+                    .pushNamed(SettingPage.routeName, arguments: null),
+          )
+        ],
       ),
       body :
       Column(

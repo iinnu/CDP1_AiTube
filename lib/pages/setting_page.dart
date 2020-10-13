@@ -1,4 +1,6 @@
+import 'package:cdp1_aitube/models/user.dart';
 import 'package:cdp1_aitube/pages/login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,7 +15,11 @@ class SettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings', style: Theme.of(context).textTheme.headline6.copyWith(color: Colors.white)),
+        title: Text('Settings',
+            style: Theme.of(context)
+                .textTheme
+                .headline6
+                .copyWith(color: Colors.white)),
       ),
       body: Column(
         children: [
@@ -28,14 +34,22 @@ class SettingPage extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 48,
                       backgroundImage:
-                          AssetImage('assets/images/profile_pic.png'),
+                          NetworkImage(currentUser.getUserPhotoUrl()),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: Text(
-                    'username',
-                    style: Theme.of(context).textTheme.headline1,
+                  child: Column(
+                    children: [
+                      Text(
+                        currentUser.getUserName(),
+                        style: Theme.of(context).textTheme.headline1,
+                      ),
+                      Text(
+                        currentUser.getUserEmail(),
+                        style: Theme.of(context).textTheme.subtitle1,
+                      )
+                    ],
                   ),
                 ),
               ],
@@ -54,7 +68,8 @@ class SettingPage extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Contact us',
-                  style: GoogleFonts.nanumGothic(fontSize: 40, fontWeight: FontWeight.w100),
+                  style: GoogleFonts.nanumGothic(
+                      fontSize: 40, fontWeight: FontWeight.w100),
                 ),
               ),
             ),
@@ -66,7 +81,6 @@ class SettingPage extends StatelessWidget {
           Container(
             width: double.infinity,
             child: InkWell(
-              onTap: () {},
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 alignment: Alignment.centerLeft,
@@ -84,7 +98,11 @@ class SettingPage extends StatelessWidget {
           Container(
             width: double.infinity,
             child: InkWell(
-              onTap: () => Navigator.of(context).popUntil((route) => route.isFirst),
+              onTap: () async {
+                if (!await currentUser.logout())
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      LoginPage.routeName, (Route<dynamic> route) => false);
+              },
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 alignment: Alignment.centerLeft,

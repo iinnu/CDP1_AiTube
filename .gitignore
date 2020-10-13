@@ -42,3 +42,5 @@ app.*.map.json
 
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+
+aitube-a38e9-firebase-adminsdk-kusca-d5a0151ffe.json

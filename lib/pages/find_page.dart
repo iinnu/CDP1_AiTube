@@ -1,4 +1,3 @@
-import 'package:cdp1_aitube/pages/login_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,16 +13,6 @@ class FindPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Find_page'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            // When we click the button, something~~
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => LoginPage()),
-            );
-          },
-        ),
       ),
       body: SingleChildScrollView(
         child: Column(

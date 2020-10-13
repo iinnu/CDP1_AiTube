@@ -27,7 +27,6 @@ dependencies:
   flutter_facebook_login: ^1.2.0
   flutter_kakao_login: ^1.2.0
   google_sign_in: ^4.5.4
-  hexcolor: ^1.0.4
   image_picker: ^0.6.0+8
   video_player: ^0.10.1
   # The following adds the Cupertino Icons font to your application.

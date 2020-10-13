@@ -10,18 +10,18 @@ class SelectPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
         title: Text('Select'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.menu),
-            onPressed: () => //누르면 SettingPage로 넘어가고 뒤로가기 버튼을 누르면 다시 돌아옴.
-                Navigator.of(context)
-                    .pushNamed(SettingPage.routeName, arguments: null),
-          )
+              icon: Icon(Icons.menu),
+              onPressed: () => //누르면 SettingPage로 넘어가고 뒤로가기 버튼을 누르면 다시 돌아옴.
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => SettingPage()))),
         ],
       ),
       body :

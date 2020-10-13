@@ -1,15 +1,10 @@
 import 'package:cdp1_aitube/models/user.dart';
 import 'package:cdp1_aitube/pages/login_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SettingPage extends StatelessWidget {
   static const routeName = "/settings";
-
-  void openLogin(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(LoginPage.routeName);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +38,7 @@ class SettingPage extends StatelessWidget {
                     children: [
                       Text(
                         currentUser.getUserName(),
-                        style: Theme.of(context).textTheme.headline1,
+                        style: Theme.of(context).textTheme.headline1.copyWith(fontSize: 50),
                       ),
                       Text(
                         currentUser.getUserEmail(),
@@ -99,9 +94,11 @@ class SettingPage extends StatelessWidget {
             width: double.infinity,
             child: InkWell(
               onTap: () async {
-                if (!await currentUser.logout())
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      LoginPage.routeName, (Route<dynamic> route) => false);
+                if (await currentUser.logout())
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => LoginPage()),
+                      (Route<dynamic> route) => false);
               },
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 15),

@@ -8,10 +8,6 @@ class DummyPage extends StatelessWidget {
     Navigator.of(ctx).pushNamed(SettingPage.routeName);
   }
 
-  void openSignUp(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(SignUpPage.routeName);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +29,7 @@ class DummyPage extends StatelessWidget {
                 children: <Widget>[
                   RaisedButton(
                     child: Text('Sign up', style: TextStyle(fontSize:20)),
-                    onPressed: () => openSignUp(context),
+                    //onPressed: () => openSignUp(context),
                   )
                 ]
             )

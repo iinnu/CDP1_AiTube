@@ -7,133 +7,72 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 Widget kakaoLoginButton(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 8.0),
-    child: InkWell(
-      onTap: () async {
-        bool userLoggedIn = await currentUser.login(LoginMethod.KAKAO);
-        if (userLoggedIn) {
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (BuildContext context) => SelectPage()));
-        }
-      },
-      child: Container(
-        height: 50,
-        decoration: new BoxDecoration(
-          color: Hexcolor('#f7e317'),
-          borderRadius: new BorderRadius.all(
-            Radius.circular(5),
-          ),
-        ),
-        width: double.infinity,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: SvgPicture.asset(
-                'assets/images/ic_login_kakao.svg',
-                height: 25,
-              ),
-            ),
-            Expanded(
-              flex: 4,
-              child: Text(
-                'Kakao로 계속하기',
-                style: GoogleFonts.nanumGothic().copyWith(
-                    fontSize: 18,
-                    letterSpacing: 0.22,
-                    fontWeight: FontWeight.normal),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Expanded(
-              child: Visibility(
-                visible: false,
-                child: SvgPicture.asset(
-                  'assets/images/ic_login_kakao.svg',
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
-}
-
-Widget googleLoginButton(BuildContext context) {
   return InkWell(
     onTap: () async {
-      bool userLoggedIn = await currentUser.login(LoginMethod.GOOGLE);
+      bool userLoggedIn = await currentUser.login(LoginMethod.KAKAO);
       if (userLoggedIn) {
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (BuildContext context) => SelectPage()));
       }
     },
     child: Container(
-    height: 50,
-    decoration: new BoxDecoration(
-      color: Hexcolor('#c53829'),
-      borderRadius: new BorderRadius.all(
-        Radius.circular(5),
+      height: 50,
+      decoration: new BoxDecoration(
+        color: Hexcolor('#f7e317'),
+        borderRadius: new BorderRadius.all(
+          Radius.circular(5),
+        ),
       ),
-    ),
-    width: double.infinity,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Expanded(
-          child: SvgPicture.asset(
-            'assets/images/ic_login_google.svg',
-            height: 25,
-          ),
-        ),
-        Expanded(
-          flex: 4,
-          child: Text(
-            'Google로 계속하기',
-            style: GoogleFonts.nanumGothic().copyWith(
-                fontSize: 18,
-                letterSpacing: 0.22,
-                color: Colors.white,
-                fontWeight: FontWeight.normal),
-            textAlign: TextAlign.center,
-          ),
-        ),
-        Expanded(
-          child: Visibility(
-            visible: false,
+      width: double.infinity,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
             child: SvgPicture.asset(
-              'assets/images/ic_login_google.svg',
+              'assets/images/ic_login_kakao.svg',
+              height: 27,
             ),
           ),
-        ),
-      ],
+          Expanded(
+            flex: 4,
+            child: Text(
+              'Kakao로 계속하기',
+              style: GoogleFonts.nanumGothic().copyWith(
+                  fontSize: 18,
+                  letterSpacing: 0.22,
+                  fontWeight: FontWeight.normal),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Expanded(
+            child: Visibility(
+              visible: false,
+              child: SvgPicture.asset(
+                'assets/images/ic_login_kakao.svg',
+              ),
+            ),
+          ),
+        ],
+      ),
     ),
-  ),
   );
 }
 
-Widget facebookLoginButton(BuildContext context) {
+Widget googleLoginButton(BuildContext context) {
   return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 8.0),
+    padding: new EdgeInsets.symmetric(vertical: 8),
     child: InkWell(
       onTap: () async {
-        bool userLoggedIn = await currentUser.login(LoginMethod.FACEBOOK);
+        bool userLoggedIn = await currentUser.login(LoginMethod.GOOGLE);
         if (userLoggedIn) {
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                  builder: (BuildContext context) => SelectPage()));
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (BuildContext context) => SelectPage()));
         }
       },
-
       child: Container(
         height: 50,
         decoration: new BoxDecoration(
-          color: Hexcolor('#4267b2'),
+          color: Hexcolor('#c53829'),
           borderRadius: new BorderRadius.all(
             Radius.circular(5),
           ),
@@ -144,14 +83,14 @@ Widget facebookLoginButton(BuildContext context) {
           children: [
             Expanded(
               child: SvgPicture.asset(
-                'assets/images/ic_login_facebook.svg',
-                height: 25,
+                'assets/images/ic_login_google.svg',
+                height: 27,
               ),
             ),
             Expanded(
               flex: 4,
               child: Text(
-                'Facebook으로 계속하기',
+                'Google로 계속하기',
                 style: GoogleFonts.nanumGothic().copyWith(
                     fontSize: 18,
                     letterSpacing: 0.22,
@@ -164,12 +103,86 @@ Widget facebookLoginButton(BuildContext context) {
               child: Visibility(
                 visible: false,
                 child: SvgPicture.asset(
-                  'assets/images/ic_login_facebook.svg',
+                  'assets/images/ic_login_google.svg',
                 ),
               ),
             ),
           ],
         ),
+      ),
+    ),
+  );
+}
+
+Widget facebookLoginButton(BuildContext context) {
+  return InkWell(
+    onTap: () async {
+      bool userLoggedIn = await currentUser.login(LoginMethod.FACEBOOK);
+      if (userLoggedIn) {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (BuildContext context) => SelectPage()));
+      }
+    },
+    child: Container(
+      height: 50,
+      decoration: new BoxDecoration(
+        color: Hexcolor('#4267b2'),
+        borderRadius: new BorderRadius.all(
+          Radius.circular(5),
+        ),
+      ),
+      width: double.infinity,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: SvgPicture.asset(
+              'assets/images/ic_login_facebook.svg',
+              height: 27,
+            ),
+          ),
+          Expanded(
+            flex: 4,
+            child: Text(
+              'Facebook으로 계속하기',
+              style: GoogleFonts.nanumGothic().copyWith(
+                  fontSize: 18,
+                  letterSpacing: 0.22,
+                  color: Colors.white,
+                  fontWeight: FontWeight.normal),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Expanded(
+            child: Visibility(
+              visible: false,
+              child: SvgPicture.asset(
+                'assets/images/ic_login_facebook.svg',
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget noLoginButton(BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 30.0),
+    child: InkWell(
+      onTap: () async {
+        currentUser.setUserPhotoUrl(
+            "https://bi.im-g.pl/im/c8/8b/18/z25736648Q,Robert-Maklowicz.jpg");
+        currentUser.setUserName('Name Surname');
+        currentUser.setUserEmail('test@email.pl');
+        currentUser.setLogged(true, null);
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (BuildContext context) => SelectPage()));
+      },
+      child: Text(
+        'press here to login without an account\nbutton for testing purpose - loads dummy data',
+        textAlign: TextAlign.center,
       ),
     ),
   );

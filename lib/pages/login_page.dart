@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
         body: SafeArea(
       child: Container(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
         height: double.infinity,
         width: double.infinity,
         child: Column(
@@ -26,6 +26,7 @@ class LoginPage extends StatelessWidget {
             googleLoginButton(ctx),
             kakaoLoginButton(ctx),
             _buildTextContainer3(),
+            noLoginButton(ctx),
           ],
         ),
       ),
@@ -130,7 +131,7 @@ Widget _buildTextContainer3() {
 
 
 
-// potentially to this stuff is to be deleted
+// potentially this stuff is to be deleted
 
 
 

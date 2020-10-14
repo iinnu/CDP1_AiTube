@@ -172,11 +172,7 @@ Widget noLoginButton(BuildContext context) {
     padding: const EdgeInsets.symmetric(vertical: 30.0),
     child: InkWell(
       onTap: () async {
-        currentUser.setUserPhotoUrl(
-            "https://bi.im-g.pl/im/c8/8b/18/z25736648Q,Robert-Maklowicz.jpg");
-        currentUser.setUserName('Name Surname');
-        currentUser.setUserEmail('test@email.pl');
-        currentUser.setLogged(true, null);
+        await currentUser.login(LoginMethod.TEST);
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (BuildContext context) => SelectPage()));
       },

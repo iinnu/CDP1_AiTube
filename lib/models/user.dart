@@ -4,7 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-enum LoginMethod { KAKAO, FACEBOOK, GOOGLE }
+enum LoginMethod { KAKAO, FACEBOOK, GOOGLE, TEST }
 
 class Users {
   final FacebookLogin _facebookSignIn = new FacebookLogin();
@@ -95,16 +95,17 @@ class Users {
           try {
             final result = await _googleSignIn.signIn();
             print(result.toString());
-            if(await _googleSignIn.isSignedIn()) {
+            if (await _googleSignIn.isSignedIn()) {
               this.setUserEmail(_googleSignIn.currentUser.email);
               this.setUserName(_googleSignIn.currentUser.displayName);
               this.setUserPhotoUrl(_googleSignIn.currentUser.photoUrl);
               this.setUserId(_googleSignIn.currentUser.id);
+              this.setLogged(true, loginMethod);
             } else {
               return false;
             }
           } catch (e) {
-            print("${e.code} ${e.message}");
+            print("${e}");
             setLogged(false, null);
             return false;
           }
@@ -140,17 +141,26 @@ class Users {
                 break;
               case FacebookLoginStatus.cancelledByUser:
                 print('Login cancelled by the user.');
-                break;
+                return false;
               case FacebookLoginStatus.error:
                 print('Something went wrong with the login process.\n'
                     'Here\'s the error Facebook gave us: ${result.errorMessage}');
-                break;
+                return false;
             }
           } catch (e) {
             print("${e.code} ${e.message}");
             return false;
           }
+          break;
         }
+      case LoginMethod.TEST: {
+        currentUser.setUserPhotoUrl(
+            "https://bi.im-g.pl/im/c8/8b/18/z25736648Q,Robert-Maklowicz.jpg");
+        currentUser.setUserName('Name Surname');
+        currentUser.setUserEmail('test@email.pl');
+        currentUser.setLogged(true, loginMethod);
+        break;
+      }
     }
     return true;
   }
@@ -183,14 +193,21 @@ class Users {
           break;
         }
       case LoginMethod.GOOGLE:
-        try {
-          await _googleSignIn.signOut();
-          setLogged(false, null);
-        } catch (e) {
-          print("${e.code} ${e.message}");
-          return false;
+        {
+          try {
+            await _googleSignIn.signOut();
+            setLogged(false, null);
+          } catch (e) {
+            print("${e.code} ${e.message}");
+            return false;
+          }
+          break;
         }
-        break;
+      case LoginMethod.TEST:
+        {
+          setLogged(false, null);
+          break;
+        }
     }
     return true;
   }

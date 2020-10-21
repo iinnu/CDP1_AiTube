@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cdp1_aitube/widgets/splashscreen.dart';
 
-
 void main() {
   runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -10,6 +9,10 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
+  MyApp({Key key, this.title}):super(key: key);
+
+  final String title;
+
   @override
   _MyAppState createState() => new _MyAppState();
 }

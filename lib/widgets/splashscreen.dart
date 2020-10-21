@@ -1,13 +1,16 @@
+<<<<<<< HEAD
 
 import 'package:cdp1_aitube/pages/edit_page.dart';
 import 'package:cdp1_aitube/pages/select_page.dart';
 import 'package:cdp1_aitube/pages/video_page.dart';
+=======
+>>>>>>> c1af6097e8aa3e5bbf63eea046b1a2bf7a4ea1dd
 import 'package:flutter/material.dart';
 import 'package:cdp1_aitube/pages/login_page.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:core';
 import 'dart:async';
+//import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashScreen extends StatefulWidget{
   @override
@@ -38,17 +41,21 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Column(
                 children: <Widget>[
                   SizedBox(height: 242,),
-                  Text(
-                    '텍스트 편집의 시작',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16.0,
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 8.0, bottom: 269.0),
-                    child: SvgPicture.asset(
-                      'assets/images/splash_logo.svg',
+                  Expanded(
+                    child: Container(
+                        margin: EdgeInsets.only(top: 8.0, bottom: 269.0),
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            '텍스트 편집의 시작',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          Image.asset('assets/images/splash_logo.png'),
+                        ],
+                      )
                     ),
                   ),
                   Text(
@@ -57,7 +64,8 @@ class _SplashScreenState extends State<SplashScreen> {
                       color: Colors.black,
                       fontSize: 11.0,
                     ),
-                  )
+                  ),
+                  SizedBox(height: 34,),
                 ],
               ),
             )

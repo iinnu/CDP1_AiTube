@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 
-import 'package:cdp1_aitube/pages/edit_page.dart';
-import 'package:cdp1_aitube/pages/select_page.dart';
-import 'package:cdp1_aitube/pages/video_page.dart';
-=======
->>>>>>> c1af6097e8aa3e5bbf63eea046b1a2bf7a4ea1dd
 import 'package:flutter/material.dart';
 import 'package:cdp1_aitube/pages/login_page.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -26,8 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
             () {
           Navigator.of(context).pushReplacement(
               new MaterialPageRoute(
-                  //builder: (BuildContext context) => LoginPage()));
-                  builder: (BuildContext context) => EditPage()));
+                  builder: (BuildContext context) => LoginPage()));
         }
     );
   }

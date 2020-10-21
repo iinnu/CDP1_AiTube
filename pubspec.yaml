@@ -61,6 +61,16 @@ flutter:
     - assets/images/ic_login_facebook.svg
     - assets/images/ic_login_google.svg
     - assets/images/ic_login_kakao.svg
+    - assets/images/ic_toolbar_navigate_before_de_000000_48_dp.svg
+    - assets/images/ic_toolbar_navigate_before_de_000000_48_dp.png
+    - assets/images/ic_mail_000000_48_dp.png
+    - assets/images/ic_popovers_trextstyle_de_000000_30_dp.png
+    - assets/images/ic_toolbar_help_de_000000_48_dp.png
+    - assets/images/ic_toolbar_upload_de_000000_48_dp.png
+    - assets/images/ic_video_play_fdc_23_e_48_dp.png
+    - assets/images/ic_segment_undo_off_61000000_48_dp.png
+    - assets/images/ic_segment_redo_off_61000000_48_dp.png
+    - assets/images/ic_view_up_48_dp.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -217,7 +217,7 @@ class AspectRatioVideoState extends State<AspectRatioVideo> {
           aspectRatio: controller.value.aspectRatio,
           child: VideoPlayer(controller),
         ),
-      );
+    );
     } else {
       return Container();
     }

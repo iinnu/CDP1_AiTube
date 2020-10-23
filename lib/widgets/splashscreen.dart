@@ -1,6 +1,7 @@
 
 import 'package:cdp1_aitube/pages/edit_page.dart';
 import 'package:cdp1_aitube/pages/select_page.dart';
+import 'package:cdp1_aitube/pages/setting_page.dart';
 import 'package:cdp1_aitube/pages/video_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cdp1_aitube/pages/login_page.dart';
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
             () {
           Navigator.of(context).pushReplacement(
               new MaterialPageRoute(
-                  builder: (BuildContext context) => EditPage()));
+                  builder: (BuildContext context) => SettingPage()));
         }
     );
   }

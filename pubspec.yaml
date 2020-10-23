@@ -71,6 +71,8 @@ flutter:
     - assets/images/ic_segment_undo_off_61000000_48_dp.png
     - assets/images/ic_segment_redo_off_61000000_48_dp.png
     - assets/images/ic_view_up_48_dp.png
+    - assets/images/ic_menu_service_48_dp.png
+    - assets/images/ic_toolbar_setting_000000_48_dp.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

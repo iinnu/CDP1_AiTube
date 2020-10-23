@@ -1,4 +1,7 @@
 
+import 'package:cdp1_aitube/pages/edit_page.dart';
+import 'package:cdp1_aitube/pages/select_page.dart';
+import 'package:cdp1_aitube/pages/video_page.dart';
 import 'package:flutter/material.dart';
 import 'package:cdp1_aitube/pages/login_page.dart';
 import 'package:hexcolor/hexcolor.dart';

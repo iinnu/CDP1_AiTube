@@ -1,3 +1,4 @@
+import 'package:cdp1_aitube/models/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_svg/svg.dart';
@@ -12,37 +13,47 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext ctx) {
     return Scaffold(
-        body: SafeArea(
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-        height: double.infinity,
-        width: double.infinity,
-        child: Column(
-          children: <Widget>[
-            _buildTextContainer1(),
-            _buildLogoImage(),
-            _buildTextContainer2(),
-            facebookLoginButton(ctx),
-            googleLoginButton(ctx),
-            kakaoLoginButton(ctx),
-            _buildTextContainer3(),
-            noLoginButton(ctx),
-          ],
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.symmetric(
+              horizontal: 2.5 * SizeConfig.imageSizeMultiplier,
+              vertical: 2.6 * SizeConfig.heightMultiplier),
+          height: double.infinity,
+          width: double.infinity,
+          child: Column(
+            children: <Widget>[
+              _buildTextContainer1(),
+              Expanded(child: _buildLogoImage()),
+              Expanded(
+                flex: 6,
+                child: Column(
+                  children: [
+                    _buildTextContainer2(),
+                    facebookLoginButton(ctx),
+                    googleLoginButton(ctx),
+                    kakaoLoginButton(ctx),
+                    _buildTextContainer3(),
+                  ],
+                ),
+              ),
+              noLoginButton(ctx),
+            ],
+          ),
         ),
       ),
-    ));
+    );
   }
 
   Widget _buildTextContainer1() {
     return Container(
       margin: EdgeInsets.only(
-        top: 97.0,
-        bottom: 11.0,
+        top: 13 * SizeConfig.heightMultiplier,
+        bottom: 1.5 * SizeConfig.heightMultiplier,
       ),
       child: Text(
         '텍스트 편집의 시작',
         style: TextStyle(
-          fontSize: 15.5,
+          fontSize: 2 * SizeConfig.textMultiplier,
           color: Hexcolor('#474747'),
         ),
       ),
@@ -56,18 +67,18 @@ class LoginPage extends StatelessWidget {
       //height: 44,
     );
   }
-
 }
+
 Widget _buildTextContainer2() {
   return Container(
     margin: EdgeInsets.only(
-      top: 180.0,
-      bottom: 20.0,
+      top: 25 * SizeConfig.heightMultiplier,
+      bottom: 2.5 * SizeConfig.heightMultiplier,
     ),
     child: Text(
       'AiTube의 서비스를 이용하시려면 로그인 해주세요.',
       style: TextStyle(
-        fontSize: 14,
+        fontSize: 2 * SizeConfig.textMultiplier,
         color: Hexcolor('#333333'),
       ),
     ),
@@ -79,61 +90,41 @@ Widget _buildTextContainer3() {
     alignment: Alignment.center,
     width: double.infinity,
     margin: EdgeInsets.only(
-      top: 10.0,
+      top: 1.3 * SizeConfig.heightMultiplier,
     ),
-    child: RichText(
-      text: TextSpan(
-        text: '회원가입 없이 이용 가능하며 로그인시 ',
-        style: TextStyle(
-          fontSize: 8,
-          color: Hexcolor('#969696'),
+    child: FittedBox(
+      child: RichText(
+        text: TextSpan(
+          text: '회원가입 없이 이용 가능하며 로그인시 ',
+          style: TextStyle(
+            fontSize:
+                SizeConfig.textMultiplier > 8 ? SizeConfig.textMultiplier : 8,
+            color: Hexcolor('#969696'),
+          ),
+          children: <TextSpan>[
+            myTextSpan('이용약관 ', true),
+            myTextSpan('및', false),
+            myTextSpan('개인정보처리방침', true),
+            myTextSpan('에 동의한 것으로 간주합니다.', false),
+          ],
         ),
-        children: <TextSpan>[
-          TextSpan(
-            text: '이용약관 ',
-            style: TextStyle(
-              fontSize: 8,
-              fontWeight: FontWeight.bold,
-              color: Hexcolor('#969696'),
-            ),
-          ),
-          TextSpan(
-            text: '및',
-            style: TextStyle(
-              fontSize: 8,
-              color: Hexcolor('#969696'),
-            ),
-          ),
-          TextSpan(
-            text: '개인정보처리방침',
-            style: TextStyle(
-              fontSize: 8,
-              fontWeight: FontWeight.bold,
-              color: Hexcolor('#969696'),
-            ),
-          ),
-          TextSpan(
-            text: '에 동의한 것으로 간주합니다.',
-            style: TextStyle(
-              fontSize: 8,
-              color: Hexcolor('#969696'),
-            ),
-          )
-        ],
       ),
     ),
   );
 }
 
-
-
-
-
-
+TextSpan myTextSpan(String text, bool isBolded) {
+  return TextSpan(
+    text: text,
+    style: TextStyle(
+      fontSize: SizeConfig.textMultiplier > 8 ? SizeConfig.textMultiplier : 8,
+      fontWeight: isBolded ? FontWeight.bold : FontWeight.normal,
+      color: Hexcolor('#969696'),
+    ),
+  );
+}
 
 // potentially this stuff is to be deleted
-
-
 
 // void _openSelect(BuildContext ctx) {
 // }

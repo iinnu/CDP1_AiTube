@@ -1,3 +1,4 @@
+import 'package:cdp1_aitube/models/size_config.dart';
 import 'package:cdp1_aitube/models/user.dart';
 import 'package:cdp1_aitube/pages/select_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,7 +17,7 @@ Widget kakaoLoginButton(BuildContext context) {
       }
     },
     child: Container(
-      height: 50,
+      height: 6.7 * SizeConfig.heightMultiplier,
       decoration: new BoxDecoration(
         color: Hexcolor('#f7e317'),
         borderRadius: new BorderRadius.all(
@@ -30,7 +31,7 @@ Widget kakaoLoginButton(BuildContext context) {
           Expanded(
             child: SvgPicture.asset(
               'assets/images/ic_login_kakao.svg',
-              height: 27,
+              height: 6.75 * SizeConfig.imageSizeMultiplier,
             ),
           ),
           Expanded(
@@ -38,7 +39,7 @@ Widget kakaoLoginButton(BuildContext context) {
             child: Text(
               'Kakao로 계속하기',
               style: GoogleFonts.nanumGothic().copyWith(
-                  fontSize: 18,
+                  fontSize: 2.4 * SizeConfig.textMultiplier,
                   letterSpacing: 0.22,
                   fontWeight: FontWeight.normal),
               textAlign: TextAlign.center,
@@ -65,12 +66,14 @@ Widget googleLoginButton(BuildContext context) {
       onTap: () async {
         bool userLoggedIn = await currentUser.login(LoginMethod.GOOGLE);
         if (userLoggedIn) {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (BuildContext context) => SelectPage()));
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => SelectPage()));
         }
       },
       child: Container(
-        height: 50,
+        height: 6.7 * SizeConfig.heightMultiplier,
         decoration: new BoxDecoration(
           color: Hexcolor('#c53829'),
           borderRadius: new BorderRadius.all(
@@ -84,7 +87,7 @@ Widget googleLoginButton(BuildContext context) {
             Expanded(
               child: SvgPicture.asset(
                 'assets/images/ic_login_google.svg',
-                height: 27,
+                height: 6.75 * SizeConfig.imageSizeMultiplier,
               ),
             ),
             Expanded(
@@ -92,7 +95,7 @@ Widget googleLoginButton(BuildContext context) {
               child: Text(
                 'Google로 계속하기',
                 style: GoogleFonts.nanumGothic().copyWith(
-                    fontSize: 18,
+                    fontSize: 2.4 * SizeConfig.textMultiplier,
                     letterSpacing: 0.22,
                     color: Colors.white,
                     fontWeight: FontWeight.normal),
@@ -124,7 +127,7 @@ Widget facebookLoginButton(BuildContext context) {
       }
     },
     child: Container(
-      height: 50,
+      height: 6.7 * SizeConfig.heightMultiplier,
       decoration: new BoxDecoration(
         color: Hexcolor('#4267b2'),
         borderRadius: new BorderRadius.all(
@@ -138,7 +141,7 @@ Widget facebookLoginButton(BuildContext context) {
           Expanded(
             child: SvgPicture.asset(
               'assets/images/ic_login_facebook.svg',
-              height: 27,
+              height: 6.75 * SizeConfig.imageSizeMultiplier,
             ),
           ),
           Expanded(
@@ -146,7 +149,7 @@ Widget facebookLoginButton(BuildContext context) {
             child: Text(
               'Facebook으로 계속하기',
               style: GoogleFonts.nanumGothic().copyWith(
-                  fontSize: 18,
+                  fontSize: 2.4 * SizeConfig.textMultiplier,
                   letterSpacing: 0.22,
                   color: Colors.white,
                   fontWeight: FontWeight.normal),
@@ -169,7 +172,7 @@ Widget facebookLoginButton(BuildContext context) {
 
 Widget noLoginButton(BuildContext context) {
   return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 30.0),
+    padding: const EdgeInsets.symmetric(vertical: 1.0),
     child: InkWell(
       onTap: () async {
         await currentUser.login(LoginMethod.TEST);

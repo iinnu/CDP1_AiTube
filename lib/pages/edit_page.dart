@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: null),
         ],
       ),
-      body: SingleChildScrollView(
+      body: SafeArea(
         child: Column(
           children: <Widget>[
             SizedBox(height: 250),
@@ -90,17 +90,47 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             Divider(),
-            Row(
-              children: <Widget>[
-                SizedBox(width: 50),
-                VerticalDivider(),
-                Flexible(
-                  child: Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Text("hello, there! nice to meet you!"),
+            Expanded(
+              child: ListView(
+                shrinkWrap: true,
+                children: <Widget>[
+                  Stack(
+                    children: <Widget>[
+                      Expanded(
+                        child: Row(
+                          children: <Widget>[
+                            SizedBox(width: 50),
+                            VerticalDivider(),
+                            Flexible(
+                              child: Padding(
+                                padding: EdgeInsets.all(16),
+                                child: Text(
+                                    "hello, there! nice to meet you!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhello"),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
+                ],
+              ),
+            ),
+            Positioned(
+              child: Container(
+                margin: const EdgeInsets.all(20.0),
+                height: 57,
+                width: 290,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
                 ),
-              ],
+                child: Row(
+                  children: <Widget>[
+
+                  ],
+                ),
+              ),
             ),
           ],
         ),

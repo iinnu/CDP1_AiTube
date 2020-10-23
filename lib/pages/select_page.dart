@@ -97,7 +97,7 @@ class SelectPage extends StatelessWidget {
                   ),
                   onTap : () {
                     Navigator.push(context, MaterialPageRoute(
-                      builder: (context)=>DummyPage()
+                      builder: (context) => DummyPage()
                     ),
                     );
                   },

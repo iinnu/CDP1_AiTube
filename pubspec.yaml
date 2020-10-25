@@ -73,6 +73,11 @@ flutter:
     - assets/images/ic_view_up_48_dp.png
     - assets/images/ic_menu_service_48_dp.png
     - assets/images/ic_toolbar_setting_000000_48_dp.png
+    - assets/images/ic_main_toolbar_menu_de_000000_48_dp.png
+    - assets/images/ic_main_toolbar_store_48_dp.png
+    - assets/images/ic_toolbar_logo_120_dp_48_dp.png
+    - assets/images/ic_video_pause_ffffff_24_dp.svg
+    - assets/images/arrow_drop_down_24_dp.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -109,3 +114,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+

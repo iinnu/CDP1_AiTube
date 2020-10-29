@@ -15,7 +15,6 @@ class VideoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
     final title = 'Grid List';
-
     return Scaffold(
         appBar: AppBar(
             leading : IconButton(

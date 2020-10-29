@@ -33,9 +33,7 @@ class VideoPage extends StatelessWidget {
                 icon : Image.asset('assets/images/ic_main_toolbar_menu_de_000000_48_dp.png'),
                 onPressed: null,
               ),
-
             ],
-
             backgroundColor: Hexcolor('#fdfdfd'),
         ),
         body: SafeArea(

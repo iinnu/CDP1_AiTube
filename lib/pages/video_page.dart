@@ -96,7 +96,6 @@ class VideoPage extends StatelessWidget {
     );
   }
 }
-
 class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

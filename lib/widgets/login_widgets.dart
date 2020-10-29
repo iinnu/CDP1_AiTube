@@ -1,6 +1,7 @@
 import 'package:cdp1_aitube/models/size_config.dart';
 import 'package:cdp1_aitube/models/user.dart';
 import 'package:cdp1_aitube/pages/select_page.dart';
+import 'package:cdp1_aitube/pages/video_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,7 +14,7 @@ Widget kakaoLoginButton(BuildContext context) {
       bool userLoggedIn = await currentUser.login(LoginMethod.KAKAO);
       if (userLoggedIn) {
         Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (BuildContext context) => SelectPage()));
+            MaterialPageRoute(builder: (BuildContext context) => VideoPage()));
       }
     },
     child: Container(
@@ -69,7 +70,7 @@ Widget googleLoginButton(BuildContext context) {
           Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                  builder: (BuildContext context) => SelectPage()));
+                  builder: (BuildContext context) => VideoPage()));
         }
       },
       child: Container(
@@ -123,7 +124,7 @@ Widget facebookLoginButton(BuildContext context) {
       bool userLoggedIn = await currentUser.login(LoginMethod.FACEBOOK);
       if (userLoggedIn) {
         Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (BuildContext context) => SelectPage()));
+            MaterialPageRoute(builder: (BuildContext context) => VideoPage()));
       }
     },
     child: Container(
@@ -177,7 +178,7 @@ Widget noLoginButton(BuildContext context) {
       onTap: () async {
         await currentUser.login(LoginMethod.TEST);
         Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (BuildContext context) => SelectPage()));
+            MaterialPageRoute(builder: (BuildContext context) => VideoPage()));
       },
       child: Text(
         'press here to login without an account\nbutton for testing purpose - loads dummy data',

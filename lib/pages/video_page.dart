@@ -22,12 +22,9 @@ class VideoPage extends StatelessWidget {
                 icon : Image.asset('assets/images/ic_main_toolbar_store_48_dp.png'),
                 onPressed: null,
             ),
-        centerTitle: true,
-        title : IconButton(
-              icon : Image.asset('assets/images/ic_toolbar_logo_120_dp_48_dp.png'),
-            ),
+        title : Logo(),
+          centerTitle: true,
             actions: <Widget>[
-
               IconButton(
               icon : Image.asset('assets/images/ic_mail_000000_48_dp.png'),
                 onPressed: null,
@@ -49,7 +46,7 @@ class VideoPage extends StatelessWidget {
                   height:179,
                   child: const DecoratedBox(
                     decoration: const BoxDecoration(
-                      color: Colors.lightBlueAccent,
+                      color: Color.fromRGBO(255,243,196,1.0),
                     ),
                   ),
               ),
@@ -63,7 +60,7 @@ class VideoPage extends StatelessWidget {
                       return Stack(
                         children:<Widget>[
                           Container(
-                            color: Colors.lightGreen,
+                            color: Color.fromRGBO(178, 234,186,1.0),
                           ),
                           Positioned(
                             child: Container(
@@ -99,6 +96,22 @@ class VideoPage extends StatelessWidget {
           ],
         )
         )
+    );
+  }
+}
+
+class Logo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center, // centers horizontally
+      crossAxisAlignment: CrossAxisAlignment.center, // centers vertically
+      children: <Widget>[
+        Image.asset("assets/images/ic_toolbar_logo_120_dp_48_dp.png", width: 120, height : 48),
+        SizedBox(
+          width: 3,
+        ), // The size box provides an immediate spacing between the widgets
+      ],
     );
   }
 }

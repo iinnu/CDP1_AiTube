@@ -157,8 +157,8 @@ class Users {
       case LoginMethod.TEST:
         {
           currentUser.setUserPhotoUrl(
-              "https://bi.im-g.pl/im/c8/8b/18/z25736648Q,Robert-Maklowicz.jpg");
-          currentUser.setUserName('Name Surname');
+              "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png");
+          currentUser.setUserName('홍길동');
           currentUser.setUserEmail('test@email.pl');
           currentUser.setLogged(true, loginMethod);
           break;

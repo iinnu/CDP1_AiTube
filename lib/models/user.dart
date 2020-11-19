@@ -14,7 +14,8 @@ class Users {
       'profile',
     ],
   );
-  String _userPhotoUrl;
+  String _userPhotoUrl =
+      "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
   String _userName;
   String _userId;
   String _userEmail;
@@ -46,7 +47,7 @@ class Users {
   }
 
   void setUserPhotoUrl(String photoUrl) {
-    _userPhotoUrl = photoUrl;
+    if (photoUrl.isNotEmpty) _userPhotoUrl = photoUrl;
   }
 
   void setUserName(String userName) {
@@ -153,14 +154,15 @@ class Users {
           }
           break;
         }
-      case LoginMethod.TEST: {
-        currentUser.setUserPhotoUrl(
-            "https://bi.im-g.pl/im/c8/8b/18/z25736648Q,Robert-Maklowicz.jpg");
-        currentUser.setUserName('Name Surname');
-        currentUser.setUserEmail('test@email.pl');
-        currentUser.setLogged(true, loginMethod);
-        break;
-      }
+      case LoginMethod.TEST:
+        {
+          currentUser.setUserPhotoUrl(
+              "https://bi.im-g.pl/im/c8/8b/18/z25736648Q,Robert-Maklowicz.jpg");
+          currentUser.setUserName('Name Surname');
+          currentUser.setUserEmail('test@email.pl');
+          currentUser.setLogged(true, loginMethod);
+          break;
+        }
     }
     return true;
   }

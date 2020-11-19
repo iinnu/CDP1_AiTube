@@ -1,6 +1,5 @@
 import 'package:cdp1_aitube/models/size_config.dart';
 import 'package:cdp1_aitube/models/user.dart';
-import 'package:cdp1_aitube/pages/select_page.dart';
 import 'package:cdp1_aitube/pages/video_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

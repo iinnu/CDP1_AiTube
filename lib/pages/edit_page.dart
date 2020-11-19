@@ -1,73 +1,55 @@
-import 'package:cdp1_aitube/pages/video_page.dart';
+import 'package:cdp1_aitube/models/size_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:hexcolor/hexcolor.dart';
 
-class EditPage extends StatelessWidget {
-  static const routename = '/edit';
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'video edit',
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class EditPage extends StatefulWidget {
+  EditPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _EditPageState createState() => _EditPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _EditPageState extends State<EditPage> {
   @override
   Widget build(BuildContext context) {
-    double deviceWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: new AppBar(
+    return SafeArea(
+      child: Scaffold(
         backgroundColor: Colors.white,
-        leading: new IconButton(
-            icon: Image.asset(
-                'assets/images/ic_toolbar_navigate_before_de_000000_48_dp.png'),
-            onPressed: null),
-        title: new IconButton(
-            icon: Image.asset('assets/images/ic_mail_000000_48_dp.png'),
-            onPressed: null),
-        actions: <Widget>[
-          IconButton(
-              icon: Image.asset(
-                  'assets/images/ic_popovers_trextstyle_de_000000_30_dp.png'),
-              onPressed: null),
-          IconButton(
-              icon: Image.asset(
-                  'assets/images/ic_toolbar_help_de_000000_48_dp.png'),
-              onPressed: null),
-          IconButton(
-              icon: Image.asset(
-                  'assets/images/ic_toolbar_upload_de_000000_48_dp.png'),
-              onPressed: null),
-        ],
-      ),
-      body: SafeArea(
-        child: Column(
+        appBar: AppBar(
+          titleSpacing: 0.0,
+          automaticallyImplyLeading: false,
+          title: TitleBar(),
+          backgroundColor: Colors.white,
+        ),
+        body: Column(
           children: <Widget>[
-            SizedBox(height: 250),
+            SizedBox(height: SizeConfig.heightMultiplier * 32.5),
             Divider(),
             Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                IconButton(
-                    icon: Image.asset(
-                        'assets/images/ic_video_play_fdc_23_e_48_dp.png'),
-                    onPressed: null),
-                Text("00:00" + " / " + "03:20"),
+                Transform.scale(
+                  scale: 0.5 * SizeConfig.imageSizeMultiplier,
+                  child: IconButton(
+                      icon: Image.asset(
+                          'assets/images/ic_video_play_fdc_23_e_48_dp.png'),
+                      onPressed: null),
+                ),
+                Text(
+                  "00:00",
+                  style: TextStyle(
+                    fontSize: SizeConfig.textMultiplier * 2,
+                    color: Hexcolor('fdc23e'),
+                  ),
+                ),
+                Text(
+                  " / " + "03:20",
+                  style: TextStyle(fontSize: SizeConfig.textMultiplier * 2),
+                ),
                 Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -75,14 +57,20 @@ class _MyHomePageState extends State<MyHomePage> {
                       IconButton(
                           icon: Image.asset(
                               'assets/images/ic_segment_undo_off_61000000_48_dp.png'),
+                          iconSize: 10 * SizeConfig.imageSizeMultiplier,
                           onPressed: null),
                       IconButton(
                           icon: Image.asset(
                               'assets/images/ic_segment_redo_off_61000000_48_dp.png'),
+                          iconSize: 10 * SizeConfig.imageSizeMultiplier,
                           onPressed: null),
+                      SizedBox(
+                        width: SizeConfig.imageSizeMultiplier * 3,
+                      ),
                       IconButton(
                           icon:
                               Image.asset('assets/images/ic_view_up_48_dp.png'),
+                          iconSize: 10 * SizeConfig.imageSizeMultiplier,
                           onPressed: null),
                     ],
                   ),
@@ -96,10 +84,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   Stack(
                     children: <Widget>[
-                      Expanded(
+                      IntrinsicHeight(
                         child: Row(
                           children: <Widget>[
-                            SizedBox(width: 50),
+                            SizedBox(
+                                width: SizeConfig.imageSizeMultiplier * 13),
                             VerticalDivider(),
                             Flexible(
                               child: Padding(
@@ -116,25 +105,82 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            Positioned(
-              child: Container(
-                margin: const EdgeInsets.all(20.0),
-                height: 57,
-                width: 290,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
-                ),
-                child: Row(
-                  children: <Widget>[
-
-                  ],
-                ),
+            Container(
+              margin: const EdgeInsets.all(20.0),
+              height: 57,
+              width: 290,
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.all(Radius.circular(5)),
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class TitleBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Stack(
+            children: [
+              IconButton(
+                icon: Image.asset(
+                    'assets/images/ic_toolbar_navigate_before_de_000000_48_dp.png'),
+                iconSize: 11.7 * SizeConfig.imageSizeMultiplier,
+                onPressed: () => Navigator.pop(context),
+              ),
+              Positioned(
+                right: SizeConfig.imageSizeMultiplier * 8,
+                child: IconButton(
+                  icon: Image.asset('assets/images/ic_mail_000000_48_dp.png'),
+                  iconSize: 11.7 * SizeConfig.imageSizeMultiplier,
+                  onPressed: null,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: SizedBox(),
+        ),
+        Expanded(
+          child: Container(
+            alignment: Alignment.centerRight,
+            child: Stack(
+              overflow: Overflow.visible,
+              children: [
+                Positioned(
+                  child: IconButton(
+                      icon: Image.asset(
+                          'assets/images/ic_popovers_trextstyle_de_000000_30_dp.png'),
+                      iconSize: 11.7 * SizeConfig.imageSizeMultiplier,
+                      onPressed: null),
+                  right: SizeConfig.imageSizeMultiplier * 18,
+                ),
+                Positioned(
+                  right: SizeConfig.imageSizeMultiplier * 9,
+                  child: IconButton(
+                      icon: Image.asset(
+                          'assets/images/ic_toolbar_help_de_000000_48_dp.png'),
+                      iconSize: 11.7 * SizeConfig.imageSizeMultiplier,
+                      onPressed: null),
+                ),
+                IconButton(
+                    icon: Image.asset(
+                        'assets/images/ic_toolbar_upload_de_000000_48_dp.png'),
+                    iconSize: 11.7 * SizeConfig.imageSizeMultiplier,
+                    onPressed: null),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

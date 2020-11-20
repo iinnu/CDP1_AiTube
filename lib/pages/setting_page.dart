@@ -7,7 +7,6 @@ import 'package:hexcolor/hexcolor.dart';
 
 class SettingPage extends StatelessWidget {
   static const routeName = "/settings";
-  String username = '홍길동';
   int voice_recognition_time = 3600;
 
   void openLogin(BuildContext ctx) {
@@ -36,7 +35,7 @@ class SettingPage extends StatelessWidget {
         elevation: 0.0,
         actions: <Widget>[
           Transform.scale(
-            scale: 1.3,
+            scale: 0.5 * SizeConfig.imageSizeMultiplier,
             child: IconButton(
               icon: Image.asset(
                   'assets/images/ic_toolbar_setting_000000_48_dp.png'),
@@ -51,9 +50,9 @@ class SettingPage extends StatelessWidget {
           children: [
             makePremium(),
             makeProfile(),
-            makeDivider(7),
+            makeDivider(SizeConfig.heightMultiplier),
             makeAiTubeService(),
-            makeDivider(7),
+            makeDivider(SizeConfig.heightMultiplier),
             makeTile('공지사항'),
             makeDivider(1),
             makeTile('도움말'),
@@ -67,7 +66,7 @@ class SettingPage extends StatelessWidget {
             makeVersionInfo(),
             makeDivider(1),
             makeTile('약관정보'),
-            makeDivider(7),
+            makeDivider(SizeConfig.heightMultiplier),
             makeCopyrightSizedBox(),
           ],
         ),
@@ -140,7 +139,7 @@ class SettingPage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 16),
+                  margin: EdgeInsets.only(left: 16, top: SizeConfig.heightMultiplier * 0.6),
                   child: Text(
                     '음성인식 사용 가능 시간  ${voice_recognition_time / 60}분 ${voice_recognition_time % 60}초',
                     style: TextStyle(
@@ -260,7 +259,7 @@ class SettingPage extends StatelessWidget {
 
   Widget makeAppInfoSizedBox() {
     return Container(
-      height: 2.5 * SizeConfig.heightMultiplier,
+      height: 3 * SizeConfig.heightMultiplier,
       width: double.infinity,
       color: Hexcolor('#f4f4f4'),
       child: Container(

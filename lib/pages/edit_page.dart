@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           onPressed: null),
                       IconButton(
                           icon:
-                              Image.asset('assets/images/ic_view_up_48_dp.png'),
+                          Image.asset('assets/images/ic_view_up_48_dp.png'),
                           onPressed: null),
                     ],
                   ),

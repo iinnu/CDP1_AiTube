@@ -2,77 +2,120 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:cdp1_aitube/models/size_config.dart';
+import 'package:cdp1_aitube/pages/select_page.dart';
+import 'package:cdp1_aitube/pages/setting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:video_player/video_player.dart';
 import 'package:photo_manager/photo_manager.dart';
 
-
 class VideoPage extends StatelessWidget {
-  static const routeName = "/video";
+  const VideoPage({
+    Key key,
+    @required this.videoFile,
+  }) : super(key: key);
+
+  final Future<File> videoFile;
 
   @override
   Widget build(BuildContext context) {
-    double deviceWidth = MediaQuery.of(context).size.width;
-    final title = 'Grid List';
     return Scaffold(
-        appBar: AppBar(
-            leading : IconButton(
-                icon : Image.asset('assets/images/ic_main_toolbar_store_48_dp.png'),
-                onPressed: null,
+      appBar: AppBar(
+        titleSpacing: 0.0,
+        automaticallyImplyLeading: false,
+        title: TitleBar(),
+        backgroundColor: Hexcolor('#fdfdfd'),
+      ),
+      body: Column(
+        children: <Widget>[
+          SafeArea(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  width: double.infinity,
+                  height: 23 * SizeConfig.heightMultiplier,
+                  child: VideoScreen(videoFile: videoFile),
+                ),
+              ],
             ),
-        title : Logo(),
-          centerTitle: true,
-            actions: <Widget>[
-              IconButton(
-              icon : Image.asset('assets/images/ic_mail_000000_48_dp.png'),
-                onPressed: null,
-              ),
-              IconButton(
-                icon : Image.asset('assets/images/ic_main_toolbar_menu_de_000000_48_dp.png'),
-                onPressed: null,
-              ),
-            ],
-            backgroundColor: Hexcolor('#fdfdfd'),
-        ),
-        body: Column(
-          children: <Widget> [
-            SafeArea(
-              child : Column(
-                children: <Widget>[
-                  SizedBox(
-                    width:deviceWidth,
-                    height:179,
-                    child: const DecoratedBox(
-                      decoration: const BoxDecoration(
-                        color: Color.fromRGBO(255,243,196,1.0),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
+          ),
+          Expanded(
+            child: Padding(
+              padding:
+              const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
               child: Gallery(),
             ),
-          ]
-        )
+          ),
+        ],
+      ),
     );
   }
 }
 
-class Logo extends StatelessWidget {
+class TitleBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center, // centers horizontally
-      crossAxisAlignment: CrossAxisAlignment.center, // centers vertically
-      children: <Widget>[
-        Image.asset("assets/images/ic_toolbar_logo_120_dp_48_dp.png", width: 120, height : 48),
-        SizedBox(
-          width: 3,
-        ), // The size box provides an immediate spacing between the widgets
+      children: [
+        Expanded(
+          child: Container(
+            child: IconButton(
+              icon:
+              Image.asset('assets/images/ic_main_toolbar_store_48_dp.png'),
+              iconSize: 11.7 * SizeConfig.imageSizeMultiplier,
+              onPressed: null,
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 3,
+          child: Container(
+            child: IconButton(
+              icon:
+              Image.asset("assets/images/ic_toolbar_logo_120_dp_48_dp.png"),
+              iconSize: 30 * SizeConfig.imageSizeMultiplier,
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) => SelectPage(),
+                ),
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+            child: Container(
+              alignment: Alignment.centerRight,
+              width: double.infinity,
+              child: Stack(
+                overflow: Overflow.visible,
+                children: [
+                  Positioned(
+                    child: IconButton(
+                      icon: Image.asset('assets/images/ic_mail_000000_48_dp.png'),
+                      iconSize: 11.7 * SizeConfig.imageSizeMultiplier,
+                      onPressed: null,
+                    ),
+                    right: 10 * SizeConfig.imageSizeMultiplier,
+                  ),
+                  Positioned(
+                    child: IconButton(
+                      icon: Image.asset(
+                          'assets/images/ic_main_toolbar_menu_de_000000_48_dp.png'),
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => SettingPage(),
+                        ),
+                      ),
+                      iconSize: 11.7 * SizeConfig.imageSizeMultiplier,
+                    ),
+                  ),
+                ],
+              ),
+            ))
       ],
     );
   }
@@ -96,7 +139,8 @@ class _GalleryState extends State<Gallery> {
   _fetchAssets() async {
     // Set onlyAll to true, to fetch only the 'Recent' album
     // which contains all the photos/videos in the storage
-    final albums = await PhotoManager.getAssetPathList(onlyAll: true, type:RequestType.video);
+    final albums = await PhotoManager.getAssetPathList(
+        onlyAll: true, type: RequestType.video);
     final recentAlbum = albums.first;
 
     // Now that we got the album, fetch all the assets it contains
@@ -112,14 +156,14 @@ class _GalleryState extends State<Gallery> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          // A grid view with 3 items per row
-          crossAxisCount: 3,
-        ),
-        itemCount: assets.length,
-        itemBuilder: (_, index) {
-          return AssetThumbnail(asset: assets[index]);
-        },
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        // A grid view with 3 items per row
+        crossAxisCount: 3,
+      ),
+      itemCount: assets.length,
+      itemBuilder: (_, index) {
+        return AssetThumbnail(asset: assets[index]);
+      },
     );
   }
 }
@@ -142,36 +186,33 @@ class AssetThumbnail extends StatelessWidget {
         // If we have no data, display a spinner
         if (bytes == null) return CircularProgressIndicator();
         // If there's data, display it as an image
-        return InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) {
-                    // if it's not, navigate to VideoScreen
-                    return VideoScreen(videoFile: asset.file);
-                  }
-              ),
-            );
-          },
-          child: Stack(
-            children: [
-              // Wrap the image in a Positioned.fill to fill the space
-              Positioned.fill(
-                child: Image.memory(bytes, fit: BoxFit.cover),
-              ),
-              // Display a Play icon if the asset is a video
-              if (asset.type == AssetType.video)
-                Center(
-                  child: Container(
-                    color: Colors.blue,
-                    child: Icon(
-                      Icons.play_arrow,
-                      color: Colors.white,
+        return Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: InkWell(
+            // when select a video
+            onTap: () => VideoPage(videoFile: asset.file),
+            child: Stack(
+              children: [
+                // Wrap the image in a Positioned.fill to fill the space
+                Positioned.fill(
+                  child: Image.memory(bytes, fit: BoxFit.cover),
+                ),
+                // Display a Play icon if the asset is a video
+                if (asset.type == AssetType.video)
+                  Container(
+                    alignment: Alignment.bottomRight,
+                    margin: EdgeInsets.only(right : 1.4 * SizeConfig.heightMultiplier, bottom: 1.4 * SizeConfig.heightMultiplier),
+                    child: Text(
+                      asset.videoDuration.inMinutes.remainder(60).toString().padLeft(2, '0')
+                          +":"+asset.videoDuration.inSeconds.remainder(60).toString().padLeft(2,'0'),
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Hexcolor('ffffff'),
+                      ),
                     ),
                   ),
-                ),
-            ],
+              ],
+            ),
           ),
         );
       },
@@ -229,28 +270,43 @@ class _VideoScreenState extends State<VideoScreen> {
             child: VideoPlayer(_controller),
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            // Wrap the play or pause in a call to `setState`. This ensures the
-            // correct icon is shown.
-            setState(() {
-              // If the video is playing, pause it.
-              if (_controller.value.isPlaying) {
-                _controller.pause();
-              } else {
-                // If the video is paused, play it.
-                _controller.play();
-              }
-            });
-          },
-          // Display the correct icon depending on the state of the player.
-          child: Icon(
-            _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-          ),
-        ),
       )
       // If the video is not yet initialized, display a spinner
-          : Center(child: CircularProgressIndicator()),
+          : Center(child: WhenTheContentIsNull()),
+    );
+  }
+}
+
+class WhenTheContentIsNull extends StatelessWidget
+{
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            child:
+            Text('편집할 영상을 선택 하세요!',
+              style: TextStyle(
+                fontSize: SizeConfig.textMultiplier * 2.1,
+                color: Hexcolor('#333333'),
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 15),
+            child:
+            Text('영상을 선택하시면 미리보기로 확인하실 수 있습니다',
+              style: TextStyle(
+                fontSize: SizeConfig.textMultiplier * 1.5,
+                color: Hexcolor('#333333'),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -80,6 +80,7 @@ flutter:
     - assets/images/ic_toolbar_logo_120_dp_48_dp.png
     - assets/images/ic_video_pause_ffffff_24_dp.svg
     - assets/images/arrow_drop_down_24_dp.svg
+    - progress_response_j.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

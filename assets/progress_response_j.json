@@ -1,0 +1,1392 @@
+{
+  "results": [
+    {
+      "alternatives": [
+        {
+          "transcript": "아기 돼지 삼형제 원작 조셉 제이콥스 그림 정재경 출판 크라이 어느 마을에 아기 돼지 삼형제가 엄마 돼지 와 함께 살고 있었어요 어느 날 엄마 돼지는 아기 돼지를 불러 이제 각자 나가서 집을 짓고 살도록 해라",
+          "confidence": 0.8846308,
+          "words": [
+            {
+              "startTime": "0s",
+              "endTime": "5s",
+              "word": "아기"
+            },
+            {
+              "startTime": "5s",
+              "endTime": "5.500s",
+              "word": "돼지"
+            },
+            {
+              "startTime": "5.500s",
+              "endTime": "5.700s",
+              "word": "삼형제"
+            },
+            {
+              "startTime": "5.700s",
+              "endTime": "7.500s",
+              "word": "원작"
+            },
+            {
+              "startTime": "7.500s",
+              "endTime": "8.200s",
+              "word": "조셉"
+            },
+            {
+              "startTime": "8.200s",
+              "endTime": "9s",
+              "word": "제이콥스"
+            },
+            {
+              "startTime": "9s",
+              "endTime": "10s",
+              "word": "그림"
+            },
+            {
+              "startTime": "10s",
+              "endTime": "10.800s",
+              "word": "정재경"
+            },
+            {
+              "startTime": "10.800s",
+              "endTime": "11.900s",
+              "word": "출판"
+            },
+            {
+              "startTime": "11.900s",
+              "endTime": "13s",
+              "word": "크라이"
+            },
+            {
+              "startTime": "13s",
+              "endTime": "14.300s",
+              "word": "어느"
+            },
+            {
+              "startTime": "14.300s",
+              "endTime": "14.800s",
+              "word": "마을에"
+            },
+            {
+              "startTime": "14.800s",
+              "endTime": "15.500s",
+              "word": "아기"
+            },
+            {
+              "startTime": "15.500s",
+              "endTime": "16s",
+              "word": "돼지"
+            },
+            {
+              "startTime": "16s",
+              "endTime": "16.700s",
+              "word": "삼형제가"
+            },
+            {
+              "startTime": "16.700s",
+              "endTime": "17.600s",
+              "word": "엄마"
+            },
+            {
+              "startTime": "17.600s",
+              "endTime": "18s",
+              "word": "돼지"
+            },
+            {
+              "startTime": "18s",
+              "endTime": "18.200s",
+              "word": "와"
+            },
+            {
+              "startTime": "18.200s",
+              "endTime": "18.500s",
+              "word": "함께"
+            },
+            {
+              "startTime": "18.500s",
+              "endTime": "18.900s",
+              "word": "살고"
+            },
+            {
+              "startTime": "18.900s",
+              "endTime": "19.500s",
+              "word": "있었어요"
+            },
+            {
+              "startTime": "19.500s",
+              "endTime": "21s",
+              "word": "어느"
+            },
+            {
+              "startTime": "21s",
+              "endTime": "21.200s",
+              "word": "날"
+            },
+            {
+              "startTime": "21.200s",
+              "endTime": "22s",
+              "word": "엄마"
+            },
+            {
+              "startTime": "22s",
+              "endTime": "22.400s",
+              "word": "돼지는"
+            },
+            {
+              "startTime": "22.400s",
+              "endTime": "23s",
+              "word": "아기"
+            },
+            {
+              "startTime": "23s",
+              "endTime": "23.500s",
+              "word": "돼지를"
+            },
+            {
+              "startTime": "23.500s",
+              "endTime": "23.800s",
+              "word": "불러"
+            },
+            {
+              "startTime": "23.800s",
+              "endTime": "25.800s",
+              "word": "이제"
+            },
+            {
+              "startTime": "25.800s",
+              "endTime": "26.400s",
+              "word": "각자"
+            },
+            {
+              "startTime": "26.400s",
+              "endTime": "27s",
+              "word": "나가서"
+            },
+            {
+              "startTime": "27s",
+              "endTime": "27.600s",
+              "word": "집을"
+            },
+            {
+              "startTime": "27.600s",
+              "endTime": "28s",
+              "word": "짓고"
+            },
+            {
+              "startTime": "28s",
+              "endTime": "28.600s",
+              "word": "살도록"
+            },
+            {
+              "startTime": "28.600s",
+              "endTime": "29.100s",
+              "word": "해라"
+            }
+          ]
+        }
+      ],
+      "languageCode": "ko-kr"
+    },
+    {
+      "alternatives": [
+        {
+          "transcript": " 자 아나운 늑대가 찾아올 수 있으니 집을 튼튼하게 지어야한다네 알겠어요 어휴 다 됐다",
+          "confidence": 0.82758105,
+          "words": [
+            {
+              "startTime": "30s",
+              "endTime": "30.700s",
+              "word": "자"
+            },
+            {
+              "startTime": "30.700s",
+              "endTime": "31.100s",
+              "word": "아나운"
+            },
+            {
+              "startTime": "31.100s",
+              "endTime": "31.700s",
+              "word": "늑대가"
+            },
+            {
+              "startTime": "31.700s",
+              "endTime": "32.200s",
+              "word": "찾아올"
+            },
+            {
+              "startTime": "32.200s",
+              "endTime": "32.400s",
+              "word": "수"
+            },
+            {
+              "startTime": "32.400s",
+              "endTime": "33s",
+              "word": "있으니"
+            },
+            {
+              "startTime": "33s",
+              "endTime": "34s",
+              "word": "집을"
+            },
+            {
+              "startTime": "34s",
+              "endTime": "35.100s",
+              "word": "튼튼하게"
+            },
+            {
+              "startTime": "35.100s",
+              "endTime": "36s",
+              "word": "지어야한다"
+            },
+            {
+              "startTime": "36s",
+              "endTime": "37.600s",
+              "word": "네"
+            },
+            {
+              "startTime": "37.600s",
+              "endTime": "38.600s",
+              "word": "알겠어요"
+            },
+            {
+              "startTime": "38.600s",
+              "endTime": "40s",
+              "word": "어휴"
+            },
+            {
+              "startTime": "40s",
+              "endTime": "40.700s",
+              "word": "다"
+            },
+            {
+              "startTime": "40.700s",
+              "endTime": "41.300s",
+              "word": "됐다"
+            }
+          ]
+        }
+      ],
+      "languageCode": "ko-kr"
+    },
+    {
+      "alternatives": [
+        {
+          "transcript": " 첫째 돼지가 가장 먼저 볏짚으로 집을 지었어요 뚝딱뚝딱",
+          "confidence": 0.918632,
+          "words": [
+            {
+              "startTime": "42.100s",
+              "endTime": "42.900s",
+              "word": "첫째"
+            },
+            {
+              "startTime": "42.900s",
+              "endTime": "43.400s",
+              "word": "돼지가"
+            },
+            {
+              "startTime": "43.400s",
+              "endTime": "43.900s",
+              "word": "가장"
+            },
+            {
+              "startTime": "43.900s",
+              "endTime": "44.300s",
+              "word": "먼저"
+            },
+            {
+              "startTime": "44.300s",
+              "endTime": "45.200s",
+              "word": "볏짚으로"
+            },
+            {
+              "startTime": "45.200s",
+              "endTime": "45.700s",
+              "word": "집을"
+            },
+            {
+              "startTime": "45.700s",
+              "endTime": "46.200s",
+              "word": "지었어요"
+            },
+            {
+              "startTime": "46.200s",
+              "endTime": "48.100s",
+              "word": "뚝딱뚝딱"
+            }
+          ]
+        }
+      ],
+      "languageCode": "ko-kr"
+    },
+    {
+      "alternatives": [
+        {
+          "transcript": " 둘째 돼지는 통나무로 쉽게 나무집을 완성했어요",
+          "confidence": 0.8364865,
+          "words": [
+            {
+              "startTime": "48.800s",
+              "endTime": "49.600s",
+              "word": "둘째"
+            },
+            {
+              "startTime": "49.600s",
+              "endTime": "50.200s",
+              "word": "돼지는"
+            },
+            {
+              "startTime": "50.200s",
+              "endTime": "51.300s",
+              "word": "통나무로"
+            },
+            {
+              "startTime": "51.300s",
+              "endTime": "52.300s",
+              "word": "쉽게"
+            },
+            {
+              "startTime": "52.300s",
+              "endTime": "53s",
+              "word": "나무집을"
+            },
+            {
+              "startTime": "53s",
+              "endTime": "53.900s",
+              "word": "완성했어요"
+            }
+          ]
+        }
+      ],
+      "languageCode": "ko-kr"
+    },
+    {
+      "alternatives": [
+        {
+          "transcript": " 막내 돼지는 튼튼한 벽돌로 집을 짓느라 아직도 땀을 뻘뻘 흘리며 집을 짓고 있었죠",
+          "confidence": 0.91779625,
+          "words": [
+            {
+              "startTime": "54.800s",
+              "endTime": "55.600s",
+              "word": "막내"
+            },
+            {
+              "startTime": "55.600s",
+              "endTime": "56.300s",
+              "word": "돼지는"
+            },
+            {
+              "startTime": "56.300s",
+              "endTime": "57.100s",
+              "word": "튼튼한"
+            },
+            {
+              "startTime": "57.100s",
+              "endTime": "57.700s",
+              "word": "벽돌로"
+            },
+            {
+              "startTime": "57.700s",
+              "endTime": "58s",
+              "word": "집을"
+            },
+            {
+              "startTime": "58s",
+              "endTime": "58.500s",
+              "word": "짓느라"
+            },
+            {
+              "startTime": "58.500s",
+              "endTime": "59.600s",
+              "word": "아직도"
+            },
+            {
+              "startTime": "59.600s",
+              "endTime": "60s",
+              "word": "땀을"
+            },
+            {
+              "startTime": "60s",
+              "endTime": "60.300s",
+              "word": "뻘뻘"
+            },
+            {
+              "startTime": "60.300s",
+              "endTime": "61s",
+              "word": "흘리며"
+            },
+            {
+              "startTime": "61s",
+              "endTime": "61.500s",
+              "word": "집을"
+            },
+            {
+              "startTime": "61.500s",
+              "endTime": "61.800s",
+              "word": "짓고"
+            },
+            {
+              "startTime": "61.800s",
+              "endTime": "62.300s",
+              "word": "있었죠"
+            }
+          ]
+        }
+      ],
+      "languageCode": "ko-kr"
+    },
+    {
+      "alternatives": [
+        {
+          "transcript": " 야호 드디어 다 지웠다",
+          "confidence": 0.6888775,
+          "words": [
+            {
+              "startTime": "63.500s",
+              "endTime": "64.500s",
+              "word": "야호"
+            },
+            {
+              "startTime": "64.500s",
+              "endTime": "66s",
+              "word": "드디어"
+            },
+            {
+              "startTime": "66s",
+              "endTime": "66.600s",
+              "word": "다"
+            },
+            {
+              "startTime": "66.600s",
+              "endTime": "67.100s",
+              "word": "지웠다"
+            }
+          ]
+        }
+      ],
+      "languageCode": "ko-kr"
+    },
+    {
+      "alternatives": [
+        {
+          "transcript": " 벽돌로 지어진 막내 돼지의 집은 무척 튼튼해 보였답니다",
+          "confidence": 0.9034564,
+          "words": [
+            {
+              "startTime": "68.200s",
+              "endTime": "69s",
+              "word": "벽돌로"
+            },
+            {
+              "startTime": "69s",
+              "endTime": "69.600s",
+              "word": "지어진"
+            },
+            {
+              "startTime": "69.600s",
+              "endTime": "70s",
+              "word": "막내"
+            },
+            {
+              "startTime": "70s",
+              "endTime": "70.400s",
+              "word": "돼지의"
+            },
+            {
+              "startTime": "70.400s",
+              "endTime": "70.800s",
+              "word": "집은"
+            },
+            {
+              "startTime": "70.800s",
+              "endTime": "71.200s",
+              "word": "무척"
+            },
+            {
+              "startTime": "71.200s",
+              "endTime": "71.700s",
+              "word": "튼튼해"
+            },
+            {
+              "startTime": "71.700s",
+              "endTime": "72.200s",
+              "word": "보였답니다"
+            }
+          ]
+        }
+      ],
+      "languageCode": "ko-kr"
+    },
+    {
+      "alternatives": [
+        {
+          "transcript": " 며칠 전부터 아기돼지 삼형제를 지켜보던 늑대가 첫째 될 때 집으로 갔어요",
+          "confidence": 0.7512833,
+          "words": [
+            {
+              "startTime": "73.300s",
+              "endTime": "74.200s",
+              "word": "며칠"
+            },
+            {
+              "startTime": "74.200s",
+              "endTime": "74.300s",
+              "word": "전부터"
+            },
+            {
+              "startTime": "74.300s",
+              "endTime": "75.600s",
+              "word": "아기돼지"
+            },
+            {
+              "startTime": "75.600s",
+              "endTime": "76.100s",
+              "word": "삼형제"
+            },
+            {
+              "startTime": "76.100s",
+              "endTime": "76.200s",
+              "word": "를"
+            },
+            {
+              "startTime": "76.200s",
+              "endTime": "76.800s",
+              "word": "지켜보던"
+            },
+            {
+              "startTime": "76.800s",
+              "endTime": "77.300s",
+              "word": "늑대가"
+            },
+            {
+              "startTime": "77.300s",
+              "endTime": "78s",
+              "word": "첫째"
+            },
+            {
+              "startTime": "78s",
+              "endTime": "78.300s",
+              "word": "될"
+            },
+            {
+              "startTime": "78.300s",
+              "endTime": "78.400s",
+              "word": "때"
+            },
+            {
+              "startTime": "78.400s",
+              "endTime": "78.800s",
+              "word": "집으로"
+            },
+            {
+              "startTime": "78.800s",
+              "endTime": "79.200s",
+              "word": "갔어요"
+            }
+          ]
+        }
+      ],
+      "languageCode": "ko-kr"
+    },
+    {
+      "alternatives": [
+        {
+          "transcript": " 후",
+          "confidence": 0.6087388,
+          "words": [
+            {
+              "startTime": "80.500s",
+              "endTime": "81.200s",
+              "word": "후"
+            }
+          ]
+        }
+      ],
+      "languageCode": "ko-kr"
+    },
+    {
+      "alternatives": [
+        {
+          "transcript": " 늑대가 만들어낸 바람에 볏짚으로 만든 집은 순식간에 날아가 버리고 말았어요 나 좀 살려 줘 첫째 돼지를 좇아온 늑대는 다시 20 들이켜 크게 내 품었어요이 정도 통나무집 치면 한 방이면 날려버릴 수 있지 나무 집은 힘없이 날아가 버리고 말았어요 첫째 돼지와 둘째 돼지는 헐레벌떡 막내 돼지의 집으로 달려왔어요 돼지 형제를 거 잡았다 놓친 늑대는 화가 났어요이 정도 벽돌집 주문 한 번이면 날려버릴 수 있지",
+          "confidence": 0.8797681,
+          "words": [
+            {
+              "startTime": "83s",
+              "endTime": "83.800s",
+              "word": "늑대가"
+            },
+            {
+              "startTime": "83.800s",
+              "endTime": "84.500s",
+              "word": "만들어낸"
+            },
+            {
+              "startTime": "84.500s",
+              "endTime": "84.900s",
+              "word": "바람에"
+            },
+            {
+              "startTime": "84.900s",
+              "endTime": "85.800s",
+              "word": "볏짚으로"
+            },
+            {
+              "startTime": "85.800s",
+              "endTime": "86.200s",
+              "word": "만든"
+            },
+            {
+              "startTime": "86.200s",
+              "endTime": "86.500s",
+              "word": "집은"
+            },
+            {
+              "startTime": "86.500s",
+              "endTime": "87.400s",
+              "word": "순식간에"
+            },
+            {
+              "startTime": "87.400s",
+              "endTime": "87.800s",
+              "word": "날아가"
+            },
+            {
+              "startTime": "87.800s",
+              "endTime": "88s",
+              "word": "버리고"
+            },
+            {
+              "startTime": "88s",
+              "endTime": "88.800s",
+              "word": "말았어요"
+            },
+            {
+              "startTime": "88.800s",
+              "endTime": "91.200s",
+              "word": "나"
+            },
+            {
+              "startTime": "91.200s",
+              "endTime": "91.400s",
+              "word": "좀"
+            },
+            {
+              "startTime": "91.400s",
+              "endTime": "92.100s",
+              "word": "살려"
+            },
+            {
+              "startTime": "92.100s",
+              "endTime": "92.200s",
+              "word": "줘"
+            },
+            {
+              "startTime": "92.200s",
+              "endTime": "93.500s",
+              "word": "첫째"
+            },
+            {
+              "startTime": "93.500s",
+              "endTime": "93.900s",
+              "word": "돼지를"
+            },
+            {
+              "startTime": "93.900s",
+              "endTime": "94.400s",
+              "word": "좇아온"
+            },
+            {
+              "startTime": "94.400s",
+              "endTime": "94.900s",
+              "word": "늑대는"
+            },
+            {
+              "startTime": "94.900s",
+              "endTime": "95.500s",
+              "word": "다시"
+            },
+            {
+              "startTime": "95.500s",
+              "endTime": "95.800s",
+              "word": "20"
+            },
+            {
+              "startTime": "95.800s",
+              "endTime": "96.300s",
+              "word": "들이켜"
+            },
+            {
+              "startTime": "96.300s",
+              "endTime": "97.200s",
+              "word": "크게"
+            },
+            {
+              "startTime": "97.200s",
+              "endTime": "97.300s",
+              "word": "내"
+            },
+            {
+              "startTime": "97.300s",
+              "endTime": "97.800s",
+              "word": "품었어요"
+            },
+            {
+              "startTime": "97.800s",
+              "endTime": "100.200s",
+              "word": "이"
+            },
+            {
+              "startTime": "100.200s",
+              "endTime": "100.900s",
+              "word": "정도"
+            },
+            {
+              "startTime": "100.900s",
+              "endTime": "102s",
+              "word": "통나무집"
+            },
+            {
+              "startTime": "102s",
+              "endTime": "102.400s",
+              "word": "치면"
+            },
+            {
+              "startTime": "102.400s",
+              "endTime": "103s",
+              "word": "한"
+            },
+            {
+              "startTime": "103s",
+              "endTime": "103.500s",
+              "word": "방이면"
+            },
+            {
+              "startTime": "103.500s",
+              "endTime": "104.400s",
+              "word": "날려버릴"
+            },
+            {
+              "startTime": "104.400s",
+              "endTime": "104.600s",
+              "word": "수"
+            },
+            {
+              "startTime": "104.600s",
+              "endTime": "104.900s",
+              "word": "있지"
+            },
+            {
+              "startTime": "104.900s",
+              "endTime": "108.400s",
+              "word": "나무"
+            },
+            {
+              "startTime": "108.400s",
+              "endTime": "108.700s",
+              "word": "집은"
+            },
+            {
+              "startTime": "108.700s",
+              "endTime": "109.600s",
+              "word": "힘없이"
+            },
+            {
+              "startTime": "109.600s",
+              "endTime": "110.100s",
+              "word": "날아가"
+            },
+            {
+              "startTime": "110.100s",
+              "endTime": "110.300s",
+              "word": "버리고"
+            },
+            {
+              "startTime": "110.300s",
+              "endTime": "111s",
+              "word": "말았어요"
+            },
+            {
+              "startTime": "111s",
+              "endTime": "112.200s",
+              "word": "첫째"
+            },
+            {
+              "startTime": "112.200s",
+              "endTime": "112.800s",
+              "word": "돼지와"
+            },
+            {
+              "startTime": "112.800s",
+              "endTime": "113.200s",
+              "word": "둘째"
+            },
+            {
+              "startTime": "113.200s",
+              "endTime": "113.700s",
+              "word": "돼지는"
+            },
+            {
+              "startTime": "113.700s",
+              "endTime": "114.600s",
+              "word": "헐레벌떡"
+            },
+            {
+              "startTime": "114.600s",
+              "endTime": "115.400s",
+              "word": "막내"
+            },
+            {
+              "startTime": "115.400s",
+              "endTime": "115.800s",
+              "word": "돼지의"
+            },
+            {
+              "startTime": "115.800s",
+              "endTime": "116.200s",
+              "word": "집으로"
+            },
+            {
+              "startTime": "116.200s",
+              "endTime": "117s",
+              "word": "달려왔어요"
+            },
+            {
+              "startTime": "117s",
+              "endTime": "118.100s",
+              "word": "돼지"
+            },
+            {
+              "startTime": "118.100s",
+              "endTime": "118.500s",
+              "word": "형제를"
+            },
+            {
+              "startTime": "118.500s",
+              "endTime": "118.900s",
+              "word": "거"
+            },
+            {
+              "startTime": "118.900s",
+              "endTime": "119.500s",
+              "word": "잡았다"
+            },
+            {
+              "startTime": "119.500s",
+              "endTime": "120s",
+              "word": "놓친"
+            },
+            {
+              "startTime": "120s",
+              "endTime": "120.600s",
+              "word": "늑대는"
+            },
+            {
+              "startTime": "120.600s",
+              "endTime": "121s",
+              "word": "화가"
+            },
+            {
+              "startTime": "121s",
+              "endTime": "121.500s",
+              "word": "났어요"
+            },
+            {
+              "startTime": "121.500s",
+              "endTime": "122.900s",
+              "word": "이"
+            },
+            {
+              "startTime": "122.900s",
+              "endTime": "123.500s",
+              "word": "정도"
+            },
+            {
+              "startTime": "123.500s",
+              "endTime": "124.400s",
+              "word": "벽돌집"
+            },
+            {
+              "startTime": "124.400s",
+              "endTime": "124.800s",
+              "word": "주문"
+            },
+            {
+              "startTime": "124.800s",
+              "endTime": "125.900s",
+              "word": "한"
+            },
+            {
+              "startTime": "125.900s",
+              "endTime": "126.300s",
+              "word": "번이면"
+            },
+            {
+              "startTime": "126.300s",
+              "endTime": "127.100s",
+              "word": "날려버릴"
+            },
+            {
+              "startTime": "127.100s",
+              "endTime": "127.200s",
+              "word": "수"
+            },
+            {
+              "startTime": "127.200s",
+              "endTime": "127.600s",
+              "word": "있지"
+            }
+          ]
+        }
+      ],
+      "languageCode": "ko-kr"
+    },
+    {
+      "alternatives": [
+        {
+          "transcript": " 응 후 24시 늦게 볼은 터질 때 부풀어져 하지만 벽돌로 만든 집은 꿈쩍도 하지 않았어요 늑대는 집 이곳저곳을 둘러보다가 굴뚝을 찾아냈죠 저것으로 들어가면 되겠어 굴뚝을 타고 내려오는 늑대를 발견한 형들에게 이렇게 말했어요",
+          "confidence": 0.85018826,
+          "words": [
+            {
+              "startTime": "128.800s",
+              "endTime": "130.300s",
+              "word": "응"
+            },
+            {
+              "startTime": "130.300s",
+              "endTime": "131s",
+              "word": "후"
+            },
+            {
+              "startTime": "133.600s",
+              "endTime": "133.600s",
+              "word": "24시"
+            },
+            {
+              "startTime": "133.600s",
+              "endTime": "134.100s",
+              "word": "늦게"
+            },
+            {
+              "startTime": "134.100s",
+              "endTime": "134.600s",
+              "word": "볼은"
+            },
+            {
+              "startTime": "134.600s",
+              "endTime": "135s",
+              "word": "터질"
+            },
+            {
+              "startTime": "135s",
+              "endTime": "135.200s",
+              "word": "때"
+            },
+            {
+              "startTime": "135.200s",
+              "endTime": "135.800s",
+              "word": "부풀어져"
+            },
+            {
+              "startTime": "135.800s",
+              "endTime": "137.200s",
+              "word": "하지만"
+            },
+            {
+              "startTime": "137.200s",
+              "endTime": "138s",
+              "word": "벽돌로"
+            },
+            {
+              "startTime": "138s",
+              "endTime": "138.300s",
+              "word": "만든"
+            },
+            {
+              "startTime": "138.300s",
+              "endTime": "138.500s",
+              "word": "집은"
+            },
+            {
+              "startTime": "138.500s",
+              "endTime": "139.500s",
+              "word": "꿈쩍도"
+            },
+            {
+              "startTime": "139.500s",
+              "endTime": "139.600s",
+              "word": "하지"
+            },
+            {
+              "startTime": "139.600s",
+              "endTime": "140.500s",
+              "word": "않았어요"
+            },
+            {
+              "startTime": "140.500s",
+              "endTime": "141.600s",
+              "word": "늑대는"
+            },
+            {
+              "startTime": "141.600s",
+              "endTime": "141.800s",
+              "word": "집"
+            },
+            {
+              "startTime": "141.800s",
+              "endTime": "142.800s",
+              "word": "이곳저곳을"
+            },
+            {
+              "startTime": "142.800s",
+              "endTime": "143.400s",
+              "word": "둘러보다가"
+            },
+            {
+              "startTime": "143.400s",
+              "endTime": "144.400s",
+              "word": "굴뚝을"
+            },
+            {
+              "startTime": "144.400s",
+              "endTime": "145s",
+              "word": "찾아냈죠"
+            },
+            {
+              "startTime": "145s",
+              "endTime": "147.500s",
+              "word": "저것으로"
+            },
+            {
+              "startTime": "147.500s",
+              "endTime": "148.100s",
+              "word": "들어가면"
+            },
+            {
+              "startTime": "148.100s",
+              "endTime": "148.800s",
+              "word": "되겠어"
+            },
+            {
+              "startTime": "148.800s",
+              "endTime": "150.400s",
+              "word": "굴뚝을"
+            },
+            {
+              "startTime": "150.400s",
+              "endTime": "150.700s",
+              "word": "타고"
+            },
+            {
+              "startTime": "150.700s",
+              "endTime": "151.300s",
+              "word": "내려오는"
+            },
+            {
+              "startTime": "151.300s",
+              "endTime": "151.900s",
+              "word": "늑대를"
+            },
+            {
+              "startTime": "151.900s",
+              "endTime": "152.400s",
+              "word": "발견한"
+            },
+            {
+              "startTime": "152.400s",
+              "endTime": "154.200s",
+              "word": "형들에게"
+            },
+            {
+              "startTime": "154.200s",
+              "endTime": "154.600s",
+              "word": "이렇게"
+            },
+            {
+              "startTime": "154.600s",
+              "endTime": "155.200s",
+              "word": "말했어요"
+            }
+          ]
+        }
+      ],
+      "languageCode": "ko-kr"
+    },
+    {
+      "alternatives": [
+        {
+          "transcript": " 형님들 늑대가 굴뚝으로 내려 오라고 해요 굴뚝 아래 뜨거운 물을 팔팔 끓여 자고요 그래그래 막내가 늑대는 그것도 모르고 두 배 타고 내려오다 그만 뜨거운 물이 펄펄 끓는 솥 안으로 풍덩 떨어지고 말았어요",
+          "confidence": 0.8898275,
+          "words": [
+            {
+              "startTime": "156.200s",
+              "endTime": "157.100s",
+              "word": "형님들"
+            },
+            {
+              "startTime": "157.100s",
+              "endTime": "158.100s",
+              "word": "늑대가"
+            },
+            {
+              "startTime": "158.100s",
+              "endTime": "158.600s",
+              "word": "굴뚝으로"
+            },
+            {
+              "startTime": "158.600s",
+              "endTime": "158.900s",
+              "word": "내려"
+            },
+            {
+              "startTime": "158.900s",
+              "endTime": "159.100s",
+              "word": "오라고"
+            },
+            {
+              "startTime": "159.100s",
+              "endTime": "159.500s",
+              "word": "해요"
+            },
+            {
+              "startTime": "159.500s",
+              "endTime": "160.600s",
+              "word": "굴뚝"
+            },
+            {
+              "startTime": "160.600s",
+              "endTime": "161s",
+              "word": "아래"
+            },
+            {
+              "startTime": "161s",
+              "endTime": "162.300s",
+              "word": "뜨거운"
+            },
+            {
+              "startTime": "162.300s",
+              "endTime": "162.600s",
+              "word": "물을"
+            },
+            {
+              "startTime": "162.600s",
+              "endTime": "163s",
+              "word": "팔팔"
+            },
+            {
+              "startTime": "163s",
+              "endTime": "163.400s",
+              "word": "끓여"
+            },
+            {
+              "startTime": "163.400s",
+              "endTime": "163.900s",
+              "word": "자고요"
+            },
+            {
+              "startTime": "163.900s",
+              "endTime": "165.200s",
+              "word": "그래그래"
+            },
+            {
+              "startTime": "165.200s",
+              "endTime": "165.700s",
+              "word": "막내가"
+            },
+            {
+              "startTime": "165.700s",
+              "endTime": "167.100s",
+              "word": "늑대는"
+            },
+            {
+              "startTime": "167.100s",
+              "endTime": "167.600s",
+              "word": "그것도"
+            },
+            {
+              "startTime": "167.600s",
+              "endTime": "168s",
+              "word": "모르고"
+            },
+            {
+              "startTime": "168s",
+              "endTime": "168.500s",
+              "word": "두"
+            },
+            {
+              "startTime": "168.500s",
+              "endTime": "168.600s",
+              "word": "배"
+            },
+            {
+              "startTime": "168.600s",
+              "endTime": "168.900s",
+              "word": "타고"
+            },
+            {
+              "startTime": "168.900s",
+              "endTime": "169.400s",
+              "word": "내려오다"
+            },
+            {
+              "startTime": "169.400s",
+              "endTime": "169.700s",
+              "word": "그만"
+            },
+            {
+              "startTime": "169.700s",
+              "endTime": "171.100s",
+              "word": "뜨거운"
+            },
+            {
+              "startTime": "171.100s",
+              "endTime": "171.400s",
+              "word": "물이"
+            },
+            {
+              "startTime": "171.400s",
+              "endTime": "172s",
+              "word": "펄펄"
+            },
+            {
+              "startTime": "172s",
+              "endTime": "172.500s",
+              "word": "끓는"
+            },
+            {
+              "startTime": "172.500s",
+              "endTime": "172.800s",
+              "word": "솥"
+            },
+            {
+              "startTime": "172.800s",
+              "endTime": "173.400s",
+              "word": "안으로"
+            },
+            {
+              "startTime": "173.400s",
+              "endTime": "174.900s",
+              "word": "풍덩"
+            },
+            {
+              "startTime": "174.900s",
+              "endTime": "175.600s",
+              "word": "떨어지고"
+            },
+            {
+              "startTime": "175.600s",
+              "endTime": "176s",
+              "word": "말았어요"
+            }
+          ]
+        }
+      ],
+      "languageCode": "ko-kr"
+    },
+    {
+      "alternatives": [
+        {
+          "transcript": " 늑대가 달아났다 아기 돼지 삼형제는 튼튼한 벽돌집에서 사이좋게 살았어요 그 후로 늑대는 아기 돼지들의 집을 다시는 찾아오지 않았답니다",
+          "confidence": 0.9016247,
+          "words": [
+            {
+              "startTime": "180.900s",
+              "endTime": "181.800s",
+              "word": "늑대가"
+            },
+            {
+              "startTime": "181.800s",
+              "endTime": "183s",
+              "word": "달아났다"
+            },
+            {
+              "startTime": "183s",
+              "endTime": "185.800s",
+              "word": "아기"
+            },
+            {
+              "startTime": "185.800s",
+              "endTime": "186.100s",
+              "word": "돼지"
+            },
+            {
+              "startTime": "186.100s",
+              "endTime": "186.400s",
+              "word": "삼형제"
+            },
+            {
+              "startTime": "186.400s",
+              "endTime": "186.900s",
+              "word": "는"
+            },
+            {
+              "startTime": "186.900s",
+              "endTime": "187.800s",
+              "word": "튼튼한"
+            },
+            {
+              "startTime": "187.800s",
+              "endTime": "188.600s",
+              "word": "벽돌집에서"
+            },
+            {
+              "startTime": "188.600s",
+              "endTime": "189.800s",
+              "word": "사이좋게"
+            },
+            {
+              "startTime": "189.800s",
+              "endTime": "190.400s",
+              "word": "살았어요"
+            },
+            {
+              "startTime": "190.400s",
+              "endTime": "191.300s",
+              "word": "그"
+            },
+            {
+              "startTime": "191.300s",
+              "endTime": "191.600s",
+              "word": "후로"
+            },
+            {
+              "startTime": "191.600s",
+              "endTime": "192.200s",
+              "word": "늑대는"
+            },
+            {
+              "startTime": "192.200s",
+              "endTime": "192.800s",
+              "word": "아기"
+            },
+            {
+              "startTime": "192.800s",
+              "endTime": "193.400s",
+              "word": "돼지들의"
+            },
+            {
+              "startTime": "193.400s",
+              "endTime": "193.700s",
+              "word": "집을"
+            },
+            {
+              "startTime": "193.700s",
+              "endTime": "194.400s",
+              "word": "다시는"
+            },
+            {
+              "startTime": "194.400s",
+              "endTime": "194.700s",
+              "word": "찾아오지"
+            },
+            {
+              "startTime": "194.700s",
+              "endTime": "195.500s",
+              "word": "않았답니다"
+            }
+          ]
+        }
+      ],
+      "languageCode": "ko-kr"
+    }
+  ]
+}

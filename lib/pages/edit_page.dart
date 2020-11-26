@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:cdp1_aitube/models/size_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class EditPage extends StatefulWidget {
@@ -13,6 +16,8 @@ class EditPage extends StatefulWidget {
 }
 
 class _EditPageState extends State<EditPage> {
+  List<String> data_list = [];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -69,7 +74,7 @@ class _EditPageState extends State<EditPage> {
                       ),
                       IconButton(
                           icon:
-                              Image.asset('assets/images/ic_view_up_48_dp.png'),
+                          Image.asset('assets/images/ic_view_up_48_dp.png'),
                           iconSize: 10 * SizeConfig.imageSizeMultiplier,
                           onPressed: null),
                     ],
@@ -93,8 +98,57 @@ class _EditPageState extends State<EditPage> {
                             Flexible(
                               child: Padding(
                                 padding: EdgeInsets.all(16),
-                                child: Text(
-                                    "hello, there! nice to meet you!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhello"),
+                                child: new Container(
+                                  child: FutureBuilder<List<String>>(
+                                    future: parseJson(),
+                                    builder: (BuildContext context,
+                                        AsyncSnapshot<List<String>> snapshot) {
+                                      List<Widget> children;
+                                      data_list = snapshot.data;
+                                      if (snapshot.hasData) {
+                                        children = <Widget>[
+                                          Padding(
+                                            padding: const EdgeInsets.all(5),
+                                            child: Wrap(
+                                              spacing: 8,
+                                              runSpacing: 4,
+                                              direction: Axis.horizontal,
+                                              children: <Widget>[
+                                                for (int i = 0;
+                                                i < data_list.length;
+                                                i++)
+                                                  new InkWell(
+                                                    child: Text(
+                                                      data_list[i],
+                                                      style: new TextStyle(
+                                                          fontSize: 17),
+                                                    ),
+                                                    onTap: null,
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ];
+                                      } else {
+                                        children = <Widget>[
+                                          Padding(
+                                            padding: EdgeInsets.only(top: 16),
+                                            child: Text("Awaiting result..."),
+                                          )
+                                        ];
+                                      }
+                                      return SafeArea(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                          children: children,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
                               ),
                             ),
                           ],
@@ -182,5 +236,118 @@ class TitleBar extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+Future<String> _loadFromAsset() async {
+  return await rootBundle.loadString("assets/progress_response_j.json");
+}
+
+Future<List<String>> parseJson() async {
+  String jsonString = await _loadFromAsset();
+  final jsonResponse = jsonDecode(jsonString);
+  final_Result r = new final_Result.fromJson(jsonResponse);
+  List something = r.result;
+  Result re;
+  Alternative al;
+  Word wd;
+  List<String> final_word_list = [];
+  for (int i = 0; i < something.length; i++) {
+    re = something[i];
+    List some = re.Alter;
+    al = some[0];
+    List some2 = al.words;
+    for (int k = 0; k < some2.length; k++) {
+      wd = some2[k];
+      String last_word = wd.final_word;
+      final_word_list.add(last_word);
+    }
+  }
+  return final_word_list;
+}
+
+class Word {
+  String startTime;
+  String endTime;
+  String final_word;
+
+  Word(this.startTime, this.endTime, this.final_word);
+
+  factory Word.fromJson(dynamic json) {
+    return Word(json['startTime'] as String, json['endTime'] as String,
+        json['word'] as String);
+  }
+
+  @override
+  String toString() {
+    return '${this.startTime}, ${this.endTime}, ${this.final_word}';
+  }
+}
+
+class Alternative {
+  String transcript;
+  double confidence;
+  List words;
+
+  Alternative(this.transcript, this.confidence, [this.words]);
+
+  factory Alternative.fromJson(dynamic json) {
+    if (json['words'] != null) {
+      var wordObjsJson = json['words'] as List;
+      List _words =
+      wordObjsJson.map((wordJson) => Word.fromJson(wordJson)).toList();
+
+      return Alternative(
+          json['transcript'] as String, json['confidence'] as double, _words);
+    } else {
+      return Alternative(
+          json['transcript'] as String, json['confidence'] as double);
+    }
+  }
+
+  String toString() {
+    return '${this.transcript}, ${this.confidence}, ${this.words}';
+  }
+}
+
+class Result {
+  String language;
+  List Alter;
+
+  Result(this.language, [this.Alter]);
+
+  factory Result.fromJson(dynamic json) {
+    if (json['alternatives'] != null) {
+      var alterObjsJson = json['alternatives'] as List;
+      List _alter = alterObjsJson
+          .map((alterJson) => Alternative.fromJson(alterJson))
+          .toList();
+      return Result(json['languageCode'] as String, _alter);
+    } else {
+      return Result(json['languageCode']);
+    }
+  }
+
+  String toString() {
+    return '${this.Alter}, ${this.language}';
+  }
+}
+
+class final_Result {
+  List result;
+
+  final_Result([this.result]);
+
+  factory final_Result.fromJson(dynamic json) {
+    if (json['results'] != null) {
+      var resultObjsJson = json['results'] as List;
+      List _result = resultObjsJson
+          .map((resultJson) => Result.fromJson(resultJson))
+          .toList();
+
+      return final_Result(_result);
+    } else {
+      return null;
+    }
   }
 }

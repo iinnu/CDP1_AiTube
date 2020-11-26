@@ -35,7 +35,7 @@ class SettingPage extends StatelessWidget {
         elevation: 0.0,
         actions: <Widget>[
           Transform.scale(
-            scale: 0.5 * SizeConfig.imageSizeMultiplier,
+            scale: 0.35 * SizeConfig.imageSizeMultiplier,
             child: IconButton(
               icon: Image.asset(
                   'assets/images/ic_toolbar_setting_000000_48_dp.png'),

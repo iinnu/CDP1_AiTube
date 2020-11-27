@@ -215,12 +215,15 @@ class AssetThumbnail extends StatelessWidget {
                 ),
                 // Display a Play icon if the asset is a video
                 if (asset.type == AssetType.video)
-                  Center(
-                    child: Container(
-                      color: Colors.blue,
-                      child: Icon(
-                        Icons.play_arrow,
-                        color: Colors.white,
+                  Container(
+                    alignment: Alignment.bottomRight,
+                    padding: EdgeInsets.only(right : 1.2 * SizeConfig.heightMultiplier, bottom: 1.2 * SizeConfig.heightMultiplier),
+                    child: Text(
+                      asset.videoDuration.inMinutes.remainder(60).toString().padLeft(2, '0')
+                          +":"+asset.videoDuration.inSeconds.remainder(60).toString().padLeft(2,'0'),
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Hexcolor('ffffff'),
                       ),
                     ),
                   ),

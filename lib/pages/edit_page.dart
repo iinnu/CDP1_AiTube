@@ -160,12 +160,99 @@ class _EditPageState extends State<EditPage> {
               ),
             ),
             Container(
+              alignment: Alignment.center,
               margin: const EdgeInsets.all(20.0),
               height: 57,
               width: 290,
               decoration: BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.all(Radius.circular(5)),
+              ),
+              child: Center(
+                child: Row(
+                  children: <Widget>[
+                    SizedBox(
+                      width: 10 * SizeConfig.imageSizeMultiplier,
+                      child: IconButton(
+                        padding: EdgeInsets.all(5),
+                        icon: Image.asset(
+                            'assets/images/ic_popovers_additional_ffffff_30_dp.png'),
+                        iconSize: 10 * SizeConfig.imageSizeMultiplier,
+                        onPressed: null,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5 * SizeConfig.imageSizeMultiplier,
+                      child: IconButton(
+                        padding: EdgeInsets.all(5),
+                        icon: Image.asset(
+                            'assets/images/rectangle.png'),
+                        iconSize: 5 * SizeConfig.imageSizeMultiplier,
+                        onPressed: null,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10 * SizeConfig.imageSizeMultiplier,
+                      child: IconButton(
+                        padding: EdgeInsets.all(5),
+                        icon: Image.asset(
+                            'assets/images/ic_popovers_cut_ffffff_30_dp.png'),
+                        iconSize: 10 * SizeConfig.imageSizeMultiplier,
+                        onPressed: null,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10 * SizeConfig.imageSizeMultiplier,
+                      child: IconButton(
+                        padding: EdgeInsets.all(5),
+                        icon: Image.asset(
+                            'assets/images/ic_popovers_copy_ffffff_30_dp.png'),
+                        iconSize: 10 * SizeConfig.imageSizeMultiplier,
+                        onPressed: null,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10 * SizeConfig.imageSizeMultiplier,
+                      child: IconButton(
+                        padding: EdgeInsets.all(5),
+                        icon: Image.asset(
+                            'assets/images/ic_popovers_paste_ffffff_30_dp.png'),
+                        iconSize: 10 * SizeConfig.imageSizeMultiplier,
+                        onPressed: null,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5 * SizeConfig.imageSizeMultiplier,
+                      child: IconButton(
+                        padding: EdgeInsets.all(5),
+                        icon: Image.asset(
+                            'assets/images/rectangle.png'),
+                        iconSize: 5 * SizeConfig.imageSizeMultiplier,
+                        onPressed: null,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10 * SizeConfig.imageSizeMultiplier,
+                      child: IconButton(
+                        padding: EdgeInsets.all(5),
+                        icon: Image.asset(
+                            'assets/images/ic_popovers_text_474747_30_dp.png'),
+                        iconSize: 10 * SizeConfig.imageSizeMultiplier,
+                        onPressed: null,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10 * SizeConfig.imageSizeMultiplier,
+                      child: IconButton(
+                        padding: EdgeInsets.all(5),
+                        icon: Image.asset(
+                            'assets/images/ic_popovers_voice_474747_30_dp.png'),
+                        iconSize: 10 * SizeConfig.imageSizeMultiplier,
+                        onPressed: null,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

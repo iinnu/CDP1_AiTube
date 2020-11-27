@@ -80,6 +80,13 @@ flutter:
     - assets/images/ic_toolbar_logo_120_dp_48_dp.png
     - assets/images/ic_video_pause_ffffff_24_dp.svg
     - assets/images/arrow_drop_down_24_dp.svg
+    - assets/images/ic_popovers_additional_ffffff_30_dp.png
+    - assets/images/rectangle.png
+    - assets/images/ic_popovers_cut_ffffff_30_dp.png
+    - assets/images/ic_popovers_paste_ffffff_30_dp.png
+    - assets/images/ic_popovers_copy_ffffff_30_dp.png
+    - assets/images/ic_popovers_text_474747_30_dp.png
+    - assets/images/ic_popovers_voice_474747_30_dp.png
     - progress_response_j.json
   #   - images/a_dot_ham.jpeg
 

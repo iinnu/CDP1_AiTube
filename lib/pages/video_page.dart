@@ -34,7 +34,7 @@ class VideoPage extends StatelessWidget {
           Center(
             child: SizedBox(
               width: double.infinity,
-              height: 23 * SizeConfig.heightMultiplier,
+              height: 28.8 * SizeConfig.heightMultiplier,
               child: VideoScreen(
                 stream: _controller.stream,
               ),
@@ -289,8 +289,13 @@ class _VideoScreenState extends State<VideoScreen> {
                 child: Center(
                   child: AspectRatio(
                     aspectRatio: _controller.value.aspectRatio,
-                    // Use the VideoPlayer widget to display the video.
-                    child: VideoPlayer(_controller),
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: <Widget>[
+                        VideoPlayer(_controller), //here it is!!
+                        VideoProgressIndicator(_controller, allowScrubbing: true),
+                      ],
+                    ),
                   ),
                 ),
                 onTap: () {
@@ -310,8 +315,11 @@ class _VideoScreenState extends State<VideoScreen> {
             // If the video is not yet initialized, display a spinner
             : Center(child: WhenTheContentIsNull()),
       ),
+
     );
+
   }
+
 }
 
 class WhenTheContentIsNull extends StatelessWidget {
@@ -343,6 +351,8 @@ class WhenTheContentIsNull extends StatelessWidget {
           ),
         ],
       ),
+
     );
+
   }
 }

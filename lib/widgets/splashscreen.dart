@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
             () {
           Navigator.of(context).pushReplacement(
               new MaterialPageRoute(
-                  builder: (BuildContext context) => VideoPage()));
+                  builder: (BuildContext context) => LoginPage()));
 
         }
     );

@@ -5,8 +5,10 @@ import 'dart:typed_data';
 import 'package:cdp1_aitube/models/size_config.dart';
 import 'package:cdp1_aitube/pages/select_page.dart';
 import 'package:cdp1_aitube/pages/setting_page.dart';
+import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_widgets/flutter_widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:video_player/video_player.dart';
 import 'package:photo_manager/photo_manager.dart';
@@ -43,7 +45,7 @@ class VideoPage extends StatelessWidget {
           Expanded(
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
+              const EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
               child: Gallery(
                 notifyParent: initVideo,
               ),
@@ -64,7 +66,7 @@ class TitleBar extends StatelessWidget {
           child: Container(
             child: IconButton(
               icon:
-                  Image.asset('assets/images/ic_main_toolbar_store_48_dp.png'),
+              Image.asset('assets/images/ic_main_toolbar_store_48_dp.png'),
               iconSize: 11.7 * SizeConfig.imageSizeMultiplier,
               onPressed: null,
             ),
@@ -75,7 +77,7 @@ class TitleBar extends StatelessWidget {
           child: Container(
             child: IconButton(
               icon:
-                  Image.asset("assets/images/ic_toolbar_logo_120_dp_48_dp.png"),
+              Image.asset("assets/images/ic_toolbar_logo_120_dp_48_dp.png"),
               iconSize: 30 * SizeConfig.imageSizeMultiplier,
               onPressed: () => Navigator.push(
                 context,
@@ -134,7 +136,6 @@ class Gallery extends StatefulWidget {
 class _GalleryState extends State<Gallery> {
   // This will hold all the assets we fetched
   List<AssetEntity> assets = [];
-
   refresh() {
     widget.notifyParent();
   }
@@ -251,6 +252,7 @@ class VideoScreen extends StatefulWidget {
 class _VideoScreenState extends State<VideoScreen> {
   VideoPlayerController _controller;
   bool initialized = false;
+  FlickManager flickManager;
 
   @override
   void initState() {
@@ -261,6 +263,7 @@ class _VideoScreenState extends State<VideoScreen> {
   @override
   void dispose() {
     _controller.dispose();
+    flickManager.dispose();
     super.dispose();
   }
 
@@ -269,53 +272,67 @@ class _VideoScreenState extends State<VideoScreen> {
       setState(() async {
         final video = await videoFile;
         _controller = VideoPlayerController.file(video)
-          // Play the video again when it ends
+        // Play the video again when it ends
           ..setLooping(true)
-          // initialize the controller and notify UI when done
+        // initialize the controller and notify UI when done
           ..initialize().then((_) => setState(() => initialized = true));
+
+        flickManager = FlickManager(
+          videoPlayerController:
+          VideoPlayerController.file(video),
+        );
       });
     });
   }
 
   @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: SizedBox(
-        width: double.infinity,
-        height: 23 * SizeConfig.heightMultiplier,
-        child: initialized
+    Widget build(BuildContext context) {
+    return VisibilityDetector(
+      key: ObjectKey(flickManager),
+      onVisibilityChanged: (visibility) {
+        if (visibility.visibleFraction == 0 && this.mounted) {
+          flickManager.flickControlManager.autoPause();
+        } else if (visibility.visibleFraction == 1) {
+          flickManager.flickControlManager.autoResume();
+        }
+      },
+      child: Column(
+        children: <Widget>[
+          SizedBox(
+            width: double.infinity,
+            height: 28.5 * SizeConfig.heightMultiplier,
+            child: initialized
             // If the video is initialized, display it
-            ? InkWell(
-                child: Center(
-                  child: AspectRatio(
-                    aspectRatio: _controller.value.aspectRatio,
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: <Widget>[
-                        VideoPlayer(_controller), //here it is!!
-                        VideoProgressIndicator(_controller, allowScrubbing: true),
-                      ],
-                    ),
+                ? InkWell(
+              child: Center(
+                child: AspectRatio(
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: <Widget>[
+                      VideoPlayer(_controller), //here it is!!
+                      VideoProgressIndicator(_controller, allowScrubbing: true),
+                      FlickVideoPlayer(
+                        flickManager: flickManager,
+                        flickVideoWithControls: FlickVideoWithControls(
+                          controls: FlickPortraitControls(),
+                        ),
+                        flickVideoWithControlsFullscreen: FlickVideoWithControls(
+                          controls: FlickLandscapeControls(),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                onTap: () {
-                  // Wrap the play or pause in a call to `setState`. This ensures the
-                  // correct icon is shown.
-                  setState(() {
-                    // If the video is playing, pause it.
-                    if (_controller.value.isPlaying) {
-                      _controller.pause();
-                    } else {
-                      // If the video is paused, play it.
-                      _controller.play();
-                    }
-                  });
-                },
-              )
+              ),
+            )
             // If the video is not yet initialized, display a spinner
-            : Center(child: WhenTheContentIsNull()),
-      ),
+                : Center(child: WhenTheContentIsNull()),
+          ),
 
+        ]
+
+    ),
     );
 
   }
@@ -337,6 +354,7 @@ class WhenTheContentIsNull extends StatelessWidget {
                 fontSize: SizeConfig.textMultiplier * 2.1,
                 color: Hexcolor('#333333'),
               ),
+
             ),
           ),
           Container(

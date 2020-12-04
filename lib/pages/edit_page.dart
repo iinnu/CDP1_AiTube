@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:cdp1_aitube/models/size_config.dart';
+import 'package:cdp1_aitube/pages/video_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,6 +18,7 @@ class EditPage extends StatefulWidget {
 }
 
 class _EditPageState extends State<EditPage> {
+  StreamController<int> _controller = StreamController<int>();
   List<String> data_list = [];
 
   @override
@@ -31,7 +34,16 @@ class _EditPageState extends State<EditPage> {
         ),
         body: Column(
           children: <Widget>[
-            SizedBox(height: SizeConfig.heightMultiplier * 32.5),
+            Center(
+              child: SizedBox(
+                width: double.infinity,
+                height: 28.8 * SizeConfig.heightMultiplier,
+                child: VideoScreen(
+                  stream: _controller.stream,
+                ),
+              ),
+            ),
+            //SizedBox(height: SizeConfig.heightMultiplier * 32.5),
             Divider(),
             Row(
               mainAxisSize: MainAxisSize.max,
@@ -74,7 +86,7 @@ class _EditPageState extends State<EditPage> {
                       ),
                       IconButton(
                           icon:
-                          Image.asset('assets/images/ic_view_up_48_dp.png'),
+                              Image.asset('assets/images/ic_view_up_48_dp.png'),
                           iconSize: 10 * SizeConfig.imageSizeMultiplier,
                           onPressed: null),
                     ],
@@ -114,14 +126,26 @@ class _EditPageState extends State<EditPage> {
                                               runSpacing: 4,
                                               direction: Axis.horizontal,
                                               children: <Widget>[
+                                                InkWell(
+                                                  child: Text(
+                                                    "  start  ",
+                                                    style: new TextStyle(
+                                                        fontSize: 17,
+                                                        backgroundColor:
+                                                            Colors.black,
+                                                        color: Colors.white,
+                                                        height: 2.0),
+                                                  ),
+                                                ),
                                                 for (int i = 0;
-                                                i < data_list.length;
-                                                i++)
+                                                    i < data_list.length;
+                                                    i++)
                                                   new InkWell(
                                                     child: Text(
                                                       data_list[i],
                                                       style: new TextStyle(
-                                                          fontSize: 17),
+                                                          fontSize: 17,
+                                                          height: 2.0),
                                                     ),
                                                     onTap: null,
                                                   ),
@@ -140,9 +164,9 @@ class _EditPageState extends State<EditPage> {
                                       return SafeArea(
                                         child: Column(
                                           mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                              MainAxisAlignment.center,
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                           children: children,
                                         ),
                                       );
@@ -185,8 +209,7 @@ class _EditPageState extends State<EditPage> {
                       width: 5 * SizeConfig.imageSizeMultiplier,
                       child: IconButton(
                         padding: EdgeInsets.all(5),
-                        icon: Image.asset(
-                            'assets/images/rectangle.png'),
+                        icon: Image.asset('assets/images/rectangle.png'),
                         iconSize: 5 * SizeConfig.imageSizeMultiplier,
                         onPressed: null,
                       ),
@@ -225,8 +248,7 @@ class _EditPageState extends State<EditPage> {
                       width: 5 * SizeConfig.imageSizeMultiplier,
                       child: IconButton(
                         padding: EdgeInsets.all(5),
-                        icon: Image.asset(
-                            'assets/images/rectangle.png'),
+                        icon: Image.asset('assets/images/rectangle.png'),
                         iconSize: 5 * SizeConfig.imageSizeMultiplier,
                         onPressed: null,
                       ),
@@ -382,7 +404,7 @@ class Alternative {
     if (json['words'] != null) {
       var wordObjsJson = json['words'] as List;
       List _words =
-      wordObjsJson.map((wordJson) => Word.fromJson(wordJson)).toList();
+          wordObjsJson.map((wordJson) => Word.fromJson(wordJson)).toList();
 
       return Alternative(
           json['transcript'] as String, json['confidence'] as double, _words);

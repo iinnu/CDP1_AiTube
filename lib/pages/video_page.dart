@@ -13,6 +13,8 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:video_player/video_player.dart';
 import 'package:photo_manager/photo_manager.dart';
 
+import 'edit_page.dart';
+
 Future<File> videoFile;
 
 class VideoPage extends StatelessWidget {
@@ -233,9 +235,17 @@ class AssetThumbnail extends StatelessWidget {
                       ),
                     )
                   )
+                else null,
+                new GestureDetector(
+                  onDoubleTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => EditPage()),
+                    );
+                  },
+                ),
               ],
             ),
-
           ),
         );
       },

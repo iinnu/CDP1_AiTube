@@ -2,9 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:cdp1_aitube/models/size_config.dart';
 import 'package:cdp1_aitube/pages/video_page.dart';
+import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_widgets/flutter_widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:video_player/video_player.dart';
 
@@ -47,51 +49,6 @@ class _EditPageState extends State<EditPage> {
             Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Transform.scale(
-                  scale: 0.5 * SizeConfig.imageSizeMultiplier,
-                  child: IconButton(
-                      icon: Image.asset(
-                          'assets/images/ic_video_play_fdc_23_e_48_dp.png'),
-                      onPressed: null),
-                ),
-                Text(
-                  "00:00",
-                  style: TextStyle(
-                    fontSize: SizeConfig.textMultiplier * 2,
-                    color: Hexcolor('fdc23e'),
-                  ),
-                ),
-                Text(
-                  " / " + "03:20",
-                  style: TextStyle(fontSize: SizeConfig.textMultiplier * 2),
-                ),
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      IconButton(
-                          icon: Image.asset(
-                              'assets/images/ic_segment_undo_off_61000000_48_dp.png'),
-                          iconSize: 10 * SizeConfig.imageSizeMultiplier,
-                          onPressed: null),
-                      IconButton(
-                          icon: Image.asset(
-                              'assets/images/ic_segment_redo_off_61000000_48_dp.png'),
-                          iconSize: 10 * SizeConfig.imageSizeMultiplier,
-                          onPressed: null),
-                      SizedBox(
-                        width: SizeConfig.imageSizeMultiplier * 3,
-                      ),
-                      IconButton(
-                          icon:
-                              Image.asset('assets/images/ic_view_up_48_dp.png'),
-                          iconSize: 10 * SizeConfig.imageSizeMultiplier,
-                          onPressed: null),
-                    ],
-                  ),
-                ),
-              ],
             ),
             Divider(),
             Expanded(
@@ -470,13 +427,15 @@ class VideoPlayerScreen extends StatefulWidget {
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   VideoPlayerController _controller;
   Future<void> _initializeVideoPlayerFuture;
-
+  FlickManager flickManager;
   @override
   void initState() {
     _controller = Contorller;
     _initializeVideoPlayerFuture = _controller.initialize();
     _controller.setLooping(true);
-
+    flickManager = FlickManager(
+      videoPlayerController: _controller,
+    );
     super.initState();
   }
 
@@ -488,31 +447,39 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: FutureBuilder(
+    return VisibilityDetector(
+      key: ObjectKey(flickManager),
+      onVisibilityChanged: (visibility) {
+        if (visibility.visibleFraction == 0 && this.mounted) {
+          flickManager.flickControlManager.autoPause();
+        } else if (visibility.visibleFraction == 1) {
+          flickManager.flickControlManager.autoResume();
+        }
+      },
+      child: FutureBuilder(
         future: _initializeVideoPlayerFuture,
         builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return VideoPlayer(_controller);
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
+          return(
+              Stack(
+                alignment: Alignment.bottomCenter,
+                children: <Widget>[
+                  VideoPlayer(_controller), //here it is!!
+                  VideoProgressIndicator(_controller, allowScrubbing: true),
+                  FlickVideoPlayer(
+                    flickManager: flickManager,
+                    flickVideoWithControls: FlickVideoWithControls(
+                      controls: FlickPortraitControls(),
+                    ),
+                    flickVideoWithControlsFullscreen: FlickVideoWithControls(
+                      controls: FlickLandscapeControls(),
+                    ),
+                  ),
+                ],
+              )
+          );
         },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            if (_controller.value.isPlaying) {
-              _controller.pause();
-            } else {
-              _controller.play();
-            }
-          });
-        },
-        child: Icon(
-          _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-        ),
       ),
     );
   }
 }
+

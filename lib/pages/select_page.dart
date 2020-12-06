@@ -41,10 +41,6 @@ class SelectPage extends StatelessWidget {
               textColor: Colors.white,
               child: Text('VIDEO EDIT', style: TextStyle(fontSize: 24)),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => EditPage()),
-                );
               },
             )),
         Container(

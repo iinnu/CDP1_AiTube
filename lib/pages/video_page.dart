@@ -16,6 +16,7 @@ import 'package:photo_manager/photo_manager.dart';
 import 'edit_page.dart';
 
 Future<File> videoFile;
+_VideoScreenState videoState;
 
 class VideoPage extends StatelessWidget {
   StreamController<int> _controller = StreamController<int>();
@@ -238,9 +239,8 @@ class AssetThumbnail extends StatelessWidget {
                 else null,
                 new GestureDetector(
                   onDoubleTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => EditPage()),
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => EditPage(videoState.controller)),
                     );
                   },
                 ),
@@ -262,7 +262,10 @@ class VideoScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _VideoScreenState createState() => _VideoScreenState();
+  _VideoScreenState createState(){
+    videoState = _VideoScreenState();
+    return videoState;
+  }
 }
 
 class _VideoScreenState extends State<VideoScreen> {
@@ -282,6 +285,8 @@ class _VideoScreenState extends State<VideoScreen> {
     flickManager.dispose();
     super.dispose();
   }
+
+  VideoPlayerController get controller => _controller;
 
   _initVideo() async {
     widget.stream.listen((event) {

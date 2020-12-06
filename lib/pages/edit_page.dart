@@ -1,15 +1,19 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:cdp1_aitube/models/size_config.dart';
 import 'package:cdp1_aitube/pages/video_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:video_player/video_player.dart';
+
+VideoPlayerController Contorller;
 
 class EditPage extends StatefulWidget {
-  EditPage({Key key, this.title}) : super(key: key);
+  EditPage(VideoPlayerController controller, {Key key, this.title}) : super(key: key){
+    Contorller = controller;
+  }
 
   final String title;
 
@@ -23,27 +27,22 @@ class _EditPageState extends State<EditPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        titleSpacing: 0.0,
+        automaticallyImplyLeading: false,
+        title: TitleBar(),
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          titleSpacing: 0.0,
-          automaticallyImplyLeading: false,
-          title: TitleBar(),
-          backgroundColor: Colors.white,
-        ),
-        body: Column(
+      ),
+      body: SafeArea(
+        child: Column(
           children: <Widget>[
-            Center(
-              child: SizedBox(
-                width: double.infinity,
-                height: 28.8 * SizeConfig.heightMultiplier,
-                child: VideoScreen(
-                  stream: _controller.stream,
-                ),
-              ),
+            SizedBox(
+              width: double.infinity,
+              height: SizeConfig.heightMultiplier * 32.5,
+              child: VideoPlayerScreen(),
             ),
-            //SizedBox(height: SizeConfig.heightMultiplier * 32.5),
             Divider(),
             Row(
               mainAxisSize: MainAxisSize.max,
@@ -458,5 +457,62 @@ class final_Result {
     } else {
       return null;
     }
+  }
+}
+
+class VideoPlayerScreen extends StatefulWidget {
+  VideoPlayerScreen({Key key}) : super(key: key);
+
+  @override
+  _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
+}
+
+class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
+  VideoPlayerController _controller;
+  Future<void> _initializeVideoPlayerFuture;
+
+  @override
+  void initState() {
+    _controller = Contorller;
+    _initializeVideoPlayerFuture = _controller.initialize();
+    _controller.setLooping(true);
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: FutureBuilder(
+        future: _initializeVideoPlayerFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return VideoPlayer(_controller);
+          } else {
+            return Center(child: CircularProgressIndicator());
+          }
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            if (_controller.value.isPlaying) {
+              _controller.pause();
+            } else {
+              _controller.play();
+            }
+          });
+        },
+        child: Icon(
+          _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+        ),
+      ),
+    );
   }
 }

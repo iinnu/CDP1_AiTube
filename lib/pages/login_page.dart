@@ -36,7 +36,7 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-              noLoginButton(ctx),
+              //noLoginButton(ctx),
             ],
           ),
         ),

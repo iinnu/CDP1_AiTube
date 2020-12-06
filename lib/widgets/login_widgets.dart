@@ -169,7 +169,7 @@ Widget facebookLoginButton(BuildContext context) {
     ),
   );
 }
-
+/*
 Widget noLoginButton(BuildContext context) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 1.0),
@@ -185,4 +185,4 @@ Widget noLoginButton(BuildContext context) {
       ),
     ),
   );
-}
+}*/
